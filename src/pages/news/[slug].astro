@@ -31,19 +31,19 @@ const publishedDate = new Date(article.published_at).toLocaleDateString("en-US",
 });
 ---
 
-<BaseLayout title={`${article.title} | Vision 8:28`} description={article.excerpt}>
+<BaseLayout title={`${article.title} | E3 CoE`} description={article.excerpt}>
   <div class="min-h-screen bg-white">
     <!-- Article Header -->
     <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <a href="/news" class="inline-flex items-center gap-2 text-slate-400 hover:text-[#24a4b9] text-sm font-medium mb-8 transition-colors">
+        <a href="/news" class="inline-flex items-center gap-2 text-slate-400 hover:text-[#5B9BD5] text-sm font-medium mb-8 transition-colors">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
           Back to News
         </a>
         <div class="flex flex-wrap items-center gap-3 mb-5">
-          <span class="text-xs font-bold text-[#24a4b9] bg-[#24a4b9]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+          <span class="text-xs font-bold text-[#5B9BD5] bg-[#5B9BD5]/10 px-3 py-1 rounded-full uppercase tracking-widest">
             {article.category}
           </span>
           {article.author && (
@@ -75,7 +75,7 @@ const publishedDate = new Date(article.published_at).toLocaleDateString("en-US",
     <!-- Article Body -->
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div
-        class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-[#24a4b9] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 prose-blockquote:border-[#24a4b9] prose-blockquote:text-slate-600"
+        class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-[#5B9BD5] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 prose-blockquote:border-[#5B9BD5] prose-blockquote:text-slate-600"
         set:html={contentHtml}
       />
 

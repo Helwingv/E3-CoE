@@ -75,7 +75,7 @@ export default function EventsManager() {
         </div>
         <button
           onClick={() => setView("create")}
-          className="flex items-center gap-2 bg-[#24a4b9] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors"
+          className="flex items-center gap-2 bg-[#5B9BD5] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -86,7 +86,7 @@ export default function EventsManager() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="w-8 h-8 border-2 border-[#24a4b9] border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-[#5B9BD5] border-t-transparent rounded-full animate-spin" />
         </div>
       ) : events.length === 0 ? (
         <div className="text-center py-20 border border-dashed border-slate-700 rounded-2xl">

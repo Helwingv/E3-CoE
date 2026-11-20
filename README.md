@@ -1,48 +1,22 @@
-# Astro Starter Kit: Basics
+# E³ CoE (Center Of Excellence) website
+
+A Smith Gruppe crossover of the Vision 8:28 site theme, built with Astro, React and Tailwind.
+
+## Run locally
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+cp .env.example .env   # add the Supabase URL and anon key
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Brand
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Base color: `#5B9BD5` (Tailwind `e3`, with shades `e3-50` to `e3-900`)
+- Logos: `public/images/e3coe-logo-{small,medium,large}.png`
+- Name, tagline, mission, vision, purpose and contact details: `src/config/site.ts`
+- Menu: `src/config/nav.ts`
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Deploy (Netlify)
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Connect this repository in Netlify. `netlify.toml` sets the build command (`npm run build`), the publish folder (`dist`) and redirects from the old Advocacy pages. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` under environment variables, since the home, news and events pages read from Supabase.

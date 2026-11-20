@@ -26,8 +26,8 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
 ---
 
 <BaseLayout
-  title="Events & Training | Vision 8:28"
-  description="Vision 8:28 Events & Training convene decision-makers, economic development professionals, entrepreneurs, and policymakers to accelerate real-world outcomes."
+  title="Events & Training | E3 CoE"
+  description="E3 CoE Events & Training convene decision-makers, economic development professionals, entrepreneurs, and policymakers to accelerate real-world outcomes."
 >
   <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
 
@@ -41,16 +41,16 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
               Where Leaders Learn.<br />Where Regions Rise.
             </h1>
             <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-3">
-              Vision 8:28 Events & Training convene decision-makers, economic development professionals, entrepreneurs, educators, and policymakers to accelerate real-world outcomes.
+              E3 CoE Events & Training convene decision-makers, economic development professionals, entrepreneurs, educators, and policymakers to accelerate real-world outcomes.
             </p>
-            <p class="text-lg text-[#24a4b9] font-semibold">
+            <p class="text-lg text-[#5B9BD5] font-semibold">
               From executive roundtables to hands-on workshops, we build the capacity behind community and economic transformation.
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href="#events"
-              class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+              class="inline-block bg-[#5B9BD5] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#3D7FC1] transition-colors duration-200 shadow-lg"
             >
               View Upcoming Events
             </a>
@@ -73,7 +73,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
             Signature Convenings That Shape Strategy
           </h2>
           <p class="text-lg text-slate-600 max-w-4xl mx-auto">
-            Vision 8:28 events are not "Programming For The Sake Of Programming." — they are catalytic by design, and intended to produce outcomes.
+            E3 CoE events are not "Programming For The Sake Of Programming." — they are catalytic by design, and intended to produce outcomes.
           </p>
         </div>
 
@@ -90,12 +90,12 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                   <div class="grid lg:grid-cols-3">
                     <div class={`${bgColors[i % 3]} text-white p-10 flex flex-col justify-between`}>
                       <div>
-                        <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-3">{labels[i % 3]}</div>
+                        <div class="text-[#5B9BD5] text-sm font-bold uppercase tracking-widest mb-3">{labels[i % 3]}</div>
                         <h3 class="text-2xl font-bold mb-4 leading-snug">{event.title}</h3>
                         {event.excerpt && <p class="text-slate-400 leading-relaxed text-sm">{event.excerpt}</p>}
                       </div>
                       <div class="mt-8 pt-8 border-t border-slate-600/50 space-y-3">
-                        <a href={`/events/${event.slug}`} class="block text-center bg-[#24a4b9] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors duration-200">
+                        <a href={`/events/${event.slug}`} class="block text-center bg-[#5B9BD5] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] transition-colors duration-200">
                           Register Now
                         </a>
                         <a href="/contact" class="block text-center bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/20 transition-colors duration-200">
@@ -107,8 +107,8 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                       <div class="grid sm:grid-cols-2 gap-6">
                         <div class="space-y-5">
                           <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-[#24a4b9]/10 flex items-center justify-center flex-shrink-0">
-                              <svg class="w-5 h-5 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-10 h-10 rounded-xl bg-[#5B9BD5]/10 flex items-center justify-center flex-shrink-0">
+                              <svg class="w-5 h-5 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                               </svg>
                             </div>
@@ -120,8 +120,8 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                           </div>
                           {(event.venue || event.location) && (
                             <div class="flex items-start gap-4">
-                              <div class="w-10 h-10 rounded-xl bg-[#24a4b9]/10 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <div class="w-10 h-10 rounded-xl bg-[#5B9BD5]/10 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -135,7 +135,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                           )}
                         </div>
                         <div class="flex items-center">
-                          <a href={`/events/${event.slug}`} class="group flex items-center gap-3 text-[#24a4b9] font-semibold text-sm hover:underline">
+                          <a href={`/events/${event.slug}`} class="group flex items-center gap-3 text-[#5B9BD5] font-semibold text-sm hover:underline">
                             View Full Details & Register
                             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -165,7 +165,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
             Building The Practitioners Behind The Policy
           </h2>
           <p class="text-lg text-slate-600 max-w-3xl mx-auto">
-            Vision 8:28 training programs translate strategy into execution.
+            E3 CoE training programs translate strategy into execution.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
           <!-- Training 1 -->
           <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col">
             <div class="bg-slate-900 text-white p-8">
-              <div class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest mb-3">Program 01</div>
+              <div class="text-[#5B9BD5] text-xs font-bold uppercase tracking-widest mb-3">Program 01</div>
               <h3 class="text-xl font-bold mb-3 leading-snug">Economic Development Practitioner Training</h3>
               <p class="text-slate-400 text-sm leading-relaxed">Designed for EDC professionals, municipal staff, and community development leaders seeking execution-ready frameworks.</p>
             </div>
@@ -190,7 +190,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                     "Performance measurement systems"
                   ].map(item => (
                     <li class="flex items-start gap-2">
-                      <div class="w-1.5 h-1.5 rounded-full bg-[#24a4b9] flex-shrink-0 mt-2"></div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-[#5B9BD5] flex-shrink-0 mt-2"></div>
                       <span class="text-slate-600 text-sm">{item}</span>
                     </li>
                   ))}
@@ -205,7 +205,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                 </div>
               </div>
               <div class="mt-auto space-y-2">
-                <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors duration-200">
+                <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] transition-colors duration-200">
                   View Training Calendar
                 </a>
                 <a href="/contact" class="block text-center border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold text-sm hover:border-slate-400 transition-colors duration-200">
@@ -218,7 +218,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
           <!-- Training 2 -->
           <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col">
             <div class="bg-slate-800 text-white p-8">
-              <div class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest mb-3">Program 02</div>
+              <div class="text-[#5B9BD5] text-xs font-bold uppercase tracking-widest mb-3">Program 02</div>
               <h3 class="text-xl font-bold mb-3 leading-snug">Small Business & Entrepreneurship Accelerator Workshops</h3>
               <p class="text-slate-400 text-sm leading-relaxed">Focused on equipping entrepreneurs and their support organizations to scale, access capital, and compete in modern markets.</p>
             </div>
@@ -233,7 +233,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                     "Innovation ecosystem navigation"
                   ].map(item => (
                     <li class="flex items-start gap-2">
-                      <div class="w-1.5 h-1.5 rounded-full bg-[#24a4b9] flex-shrink-0 mt-2"></div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-[#5B9BD5] flex-shrink-0 mt-2"></div>
                       <span class="text-slate-600 text-sm">{item}</span>
                     </li>
                   ))}
@@ -248,7 +248,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                 </div>
               </div>
               <div class="mt-auto">
-                <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors duration-200">
+                <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] transition-colors duration-200">
                   Register For An Accelerator Session
                 </a>
               </div>
@@ -258,7 +258,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
           <!-- Training 3 -->
           <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col">
             <div class="bg-slate-700 text-white p-8">
-              <div class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest mb-3">Program 03</div>
+              <div class="text-[#5B9BD5] text-xs font-bold uppercase tracking-widest mb-3">Program 03</div>
               <h3 class="text-xl font-bold mb-3 leading-snug">Workforce & Talent Development Labs</h3>
               <p class="text-slate-400 text-sm leading-relaxed">Interactive labs designed to align regional talent pipelines with employer demand and modernize how workforce systems operate.</p>
             </div>
@@ -273,14 +273,14 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                     "Talent pipeline partnerships"
                   ].map(item => (
                     <li class="flex items-start gap-2">
-                      <div class="w-1.5 h-1.5 rounded-full bg-[#24a4b9] flex-shrink-0 mt-2"></div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-[#5B9BD5] flex-shrink-0 mt-2"></div>
                       <span class="text-slate-600 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div class="mt-auto">
-                <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors duration-200">
+                <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] transition-colors duration-200">
                   Join A Workforce Lab
                 </a>
               </div>
@@ -296,12 +296,12 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">On-Demand Learning Hub</div>
+            <div class="text-[#5B9BD5] text-sm font-bold uppercase tracking-widest mb-4">On-Demand Learning Hub</div>
             <h2 class="text-4xl font-bold text-slate-900 mb-6">
               Learn On Your Schedule
             </h2>
             <p class="text-lg text-slate-600 leading-relaxed mb-8">
-              Vision 8:28 offers digital learning modules and recorded sessions for continued professional development — accessible wherever you are, whenever you need it.
+              E3 CoE offers digital learning modules and recorded sessions for continued professional development — accessible wherever you are, whenever you need it.
             </p>
             <div class="grid sm:grid-cols-2 gap-4 mb-10">
               {[
@@ -312,8 +312,8 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                 { label: "Data Trend Updates", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" }
               ].map(item => (
                 <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
-                  <div class="w-8 h-8 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-8 h-8 bg-[#5B9BD5] bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path>
                     </svg>
                   </div>
@@ -322,7 +322,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
               ))}
             </div>
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/contact" class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg">
+              <a href="/contact" class="inline-block bg-[#5B9BD5] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#3D7FC1] transition-colors duration-200 shadow-lg">
                 Access On-Demand Library
               </a>
               <a href="/contact" class="inline-block border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-slate-400 transition-colors duration-200">
@@ -333,13 +333,13 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
           <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
             <div class="text-center mb-8">
               <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-8 h-8 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-slate-900 mb-2">Member Access Hub</h3>
-              <p class="text-slate-500 text-sm">Full library access for Vision 8:28 members</p>
+              <p class="text-slate-500 text-sm">Full library access for E3 CoE members</p>
             </div>
             <div class="space-y-3">
               {[
@@ -349,15 +349,15 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                 { title: "EDC Leadership Roundtable — Q4 2024", type: "Interview Series", duration: "44 min" }
               ].map(item => (
                 <div class="flex items-start gap-4 bg-white border border-slate-200 rounded-xl px-5 py-4">
-                  <div class="w-8 h-8 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-8 h-8 bg-[#5B9BD5] bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                   </div>
                   <div class="flex-1 min-w-0">
                     <p class="text-slate-900 font-semibold text-sm truncate">{item.title}</p>
                     <div class="flex items-center gap-2 mt-1">
-                      <span class="text-[#24a4b9] text-xs font-medium">{item.type}</span>
+                      <span class="text-[#5B9BD5] text-xs font-medium">{item.type}</span>
                       <span class="text-slate-400 text-xs">·</span>
                       <span class="text-slate-500 text-xs">{item.duration}</span>
                     </div>
@@ -377,12 +377,12 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
     <section class="py-20 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">Certification Pathways</div>
+          <div class="text-[#5B9BD5] text-sm font-bold uppercase tracking-widest mb-4">Certification Pathways</div>
           <h2 class="text-4xl font-bold text-slate-900 mb-4">
             Professional Certification Pathways
           </h2>
           <p class="text-lg text-slate-600 max-w-3xl mx-auto">
-            Vision 8:28 offers structured learning pathways designed to elevate practitioner credibility and regional capacity, culminating in recognized certifications.
+            E3 CoE offers structured learning pathways designed to elevate practitioner credibility and regional capacity, culminating in recognized certifications.
           </p>
         </div>
 
@@ -405,13 +405,13 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
             }
           ].map(cert => (
             <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-200 flex flex-col">
-              <div class="w-12 h-12 bg-slate-900 text-[#24a4b9] rounded-xl flex items-center justify-center font-bold text-lg mb-6 flex-shrink-0">
+              <div class="w-12 h-12 bg-slate-900 text-[#5B9BD5] rounded-xl flex items-center justify-center font-bold text-lg mb-6 flex-shrink-0">
                 {cert.number}
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-3 leading-snug">{cert.title}</h3>
               <p class="text-slate-600 text-sm leading-relaxed flex-1">{cert.description}</p>
               <div class="mt-6 pt-5 border-t border-slate-100">
-                <a href="/contact" class="text-[#24a4b9] font-semibold text-sm hover:underline">
+                <a href="/contact" class="text-[#5B9BD5] font-semibold text-sm hover:underline">
                   Explore Certification Track →
                 </a>
               </div>
@@ -433,12 +433,12 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
         <div class="max-w-6xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">For Organizations</div>
+              <div class="text-[#5B9BD5] text-sm font-bold uppercase tracking-widest mb-4">For Organizations</div>
               <h2 class="text-4xl font-bold text-slate-900 mb-6">
                 Customized Training For Organizations
               </h2>
               <p class="text-lg text-slate-600 leading-relaxed mb-10">
-                Vision 8:28 provides tailored training programs for organizations seeking to build internal capacity, align with community strategies, and lead with data-driven economic development frameworks.
+                E3 CoE provides tailored training programs for organizations seeking to build internal capacity, align with community strategies, and lead with data-driven economic development frameworks.
               </p>
               <div class="space-y-5">
                 {[
@@ -460,7 +460,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                 ].map(item => (
                   <div class="flex items-start gap-5 p-6 bg-slate-50 border border-slate-200 rounded-xl">
                     <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg class="w-5 h-5 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-[#5B9BD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path>
                       </svg>
                     </div>
@@ -486,7 +486,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                   "Ongoing coaching and support available"
                 ].map(item => (
                   <li class="flex items-start gap-3">
-                    <div class="w-5 h-5 rounded-full bg-[#24a4b9] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div class="w-5 h-5 rounded-full bg-[#5B9BD5] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                       </svg>
@@ -495,7 +495,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
                   </li>
                 ))}
               </ul>
-              <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200">
+              <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#3D7FC1] transition-colors duration-200">
                 Request A Consultation
               </a>
             </div>
@@ -515,12 +515,12 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div class="bg-white border border-slate-200 rounded-xl p-8">
             <div class="mb-6">
-              <svg class="w-8 h-8 text-[#24a4b9] opacity-60" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-[#5B9BD5] opacity-60" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
               </svg>
             </div>
             <p class="text-slate-700 text-lg leading-relaxed mb-6 italic">
-              "Vision 8:28's training shifted our strategy from reactive to data-driven."
+              "E3 CoE's training shifted our strategy from reactive to data-driven."
             </p>
             <div class="border-t border-slate-200 pt-4">
               <p class="font-semibold text-slate-900">Regional Economic Development Director</p>
@@ -529,7 +529,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
           </div>
           <div class="bg-white border border-slate-200 rounded-xl p-8">
             <div class="mb-6">
-              <svg class="w-8 h-8 text-[#24a4b9] opacity-60" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-[#5B9BD5] opacity-60" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
               </svg>
             </div>
@@ -551,16 +551,16 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
         <h2 class="text-4xl font-bold mb-6">
           Capability Drives Impact.
         </h2>
-        <p class="text-[#24a4b9] text-xl font-semibold mb-3">
+        <p class="text-[#5B9BD5] text-xl font-semibold mb-3">
           Policy without skill stalls. Strategy without training fails.
         </p>
         <p class="text-slate-300 text-lg mb-10 leading-relaxed max-w-3xl mx-auto">
-          Vision 8:28 equips leaders with the tools, frameworks, and partnerships required to deliver measurable results.
+          E3 CoE equips leaders with the tools, frameworks, and partnerships required to deliver measurable results.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="#events"
-            class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+            class="inline-block bg-[#5B9BD5] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#3D7FC1] transition-colors duration-200 shadow-lg"
           >
             Register For An Upcoming Event
           </a>
@@ -568,7 +568,7 @@ const labels = ["Signature Event", "Featured Event", "Upcoming Event"];
             href="/contact"
             class="inline-block bg-white/10 border border-white/20 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
           >
-            Join The Vision 8:28 Community
+            Join The E3 CoE Community
           </a>
         </div>
       </div>

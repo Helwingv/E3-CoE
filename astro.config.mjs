@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  site: 'https://vision828.org',
+  site: 'https://e3coe.com',
   output: 'hybrid',
   adapter: netlify(),
   integrations: [react(), tailwind(), sitemap()],

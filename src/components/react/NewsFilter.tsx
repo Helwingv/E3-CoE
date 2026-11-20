@@ -45,7 +45,7 @@ export default function NewsFilter() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-16">
-        <div className="w-8 h-8 border-2 border-[#24a4b9] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#5B9BD5] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -81,7 +81,7 @@ export default function NewsFilter() {
               placeholder="Search by topic, author, or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm"
+              className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm"
             />
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function NewsFilter() {
           <p className="text-slate-500 text-lg">No results found for your search.</p>
           <button
             onClick={() => { setActiveFilter("all"); setSearchQuery(""); }}
-            className="mt-4 text-[#24a4b9] font-semibold hover:underline text-sm"
+            className="mt-4 text-[#5B9BD5] font-semibold hover:underline text-sm"
           >
             Clear filters
           </button>
@@ -131,7 +131,7 @@ export default function NewsFilter() {
                       {new Date(item.published_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                     </span>
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base leading-snug mb-3 group-hover:text-[#24a4b9] transition-colors duration-150">
+                  <h3 className="font-bold text-slate-900 text-base leading-snug mb-3 group-hover:text-[#5B9BD5] transition-colors duration-150">
                     {item.title}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-5">
@@ -144,7 +144,7 @@ export default function NewsFilter() {
                 <div className="px-7 pb-6">
                   <a
                     href={`/news/${item.slug}`}
-                    className="block text-center border border-slate-200 text-slate-700 px-4 py-2.5 rounded-lg font-semibold text-xs hover:border-[#24a4b9] hover:text-[#24a4b9] transition-colors duration-150"
+                    className="block text-center border border-slate-200 text-slate-700 px-4 py-2.5 rounded-lg font-semibold text-xs hover:border-[#5B9BD5] hover:text-[#5B9BD5] transition-colors duration-150"
                   >
                     Read Full Story &rarr;
                   </a>

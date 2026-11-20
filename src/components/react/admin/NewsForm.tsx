@@ -68,7 +68,7 @@ export default function NewsForm({ article, onSaved, onCancel }: Props) {
     setSaving(false);
   };
 
-  const inputCls = "w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm transition-colors";
+  const inputCls = "w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm transition-colors";
   const labelCls = "block text-slate-400 text-xs font-semibold uppercase tracking-widest mb-1.5";
 
   return (
@@ -149,7 +149,7 @@ export default function NewsForm({ article, onSaved, onCancel }: Props) {
           <label className="flex items-center gap-3 cursor-pointer">
             <div
               onClick={() => set("is_published", !form.is_published)}
-              className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.is_published ? "bg-[#24a4b9]" : "bg-slate-700"}`}
+              className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.is_published ? "bg-[#5B9BD5]" : "bg-slate-700"}`}
             >
               <div className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200 ${form.is_published ? "translate-x-5" : ""}`} />
             </div>
@@ -170,7 +170,7 @@ export default function NewsForm({ article, onSaved, onCancel }: Props) {
         <button
           type="submit"
           disabled={saving}
-          className="bg-[#24a4b9] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] disabled:opacity-50 transition-colors"
+          className="bg-[#5B9BD5] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#3D7FC1] disabled:opacity-50 transition-colors"
         >
           {saving ? "Saving…" : isEdit ? "Save Changes" : "Create Article"}
         </button>

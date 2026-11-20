@@ -54,7 +54,7 @@ export default function EventRegistrationForm({ eventId, eventTitle, eventSlug, 
   };
 
   const inputCls =
-    "w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm transition-colors";
+    "w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm transition-colors";
   const labelCls = "block text-slate-600 text-sm font-medium mb-1.5";
 
   if (status === "success") {
@@ -162,7 +162,7 @@ export default function EventRegistrationForm({ eventId, eventTitle, eventSlug, 
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="w-full bg-[#24a4b9] text-white px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#1d8a9d] disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center gap-2"
+          className="w-full bg-[#5B9BD5] text-white px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#3D7FC1] disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center gap-2"
         >
           {status === "submitting" ? (
             <>

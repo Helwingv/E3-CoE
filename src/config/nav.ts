@@ -1,6 +1,7 @@
 export type NavItem = {
   label: string;
   href?: string;
+  external?: boolean;
   children?: { label: string; href: string; desc?: string }[];
 };
 
@@ -40,7 +41,9 @@ export const nav: NavItem[] = [
       { label: "Guides & Toolkits", href: "/resources/guides-toolkits" },
       { label: "Data & Reports", href: "/resources/data-reports" },
       { label: "Funding & Grants", href: "/resources/funding-grants" },
-      { label: "Partner Directory", href: "/resources/partner-directory" }
+      { label: "Partner Directory", href: "/resources/partner-directory" },
+      { label: "Policy Priorities", href: "/resources/policy-priorities" },
+      { label: "Collaboration", href: "/resources/collaboration" }
     ]
   },
   {
@@ -53,11 +56,9 @@ export const nav: NavItem[] = [
     ]
   },
   {
-    label: "Advocacy",
-    children: [
-      { label: "Policy Priorities", href: "/advocacy/policy-priorities" },
-      { label: "Collaboration", href: "/advocacy/collaboration" }
-    ]
+    label: "NOAH",
+    href: "https://noah.e3coe.com",
+    external: true
   },
   { label: "News", href: "/news" },
   { label: "Donate", href: "/donate" },

@@ -6,7 +6,7 @@ import ShinyText from "../components/react/ShinyText";
 import { site } from "../config/site";
 import { ViewTransitions } from "astro:transitions";
 
-const { title = site.name, description = site.tagline } = Astro.props;
+const { title = `${site.name} | Center Of Excellence`, description = site.tagline } = Astro.props;
 ---
 <html lang="en" class="scroll-smooth">
   <head>
@@ -14,48 +14,52 @@ const { title = site.name, description = site.tagline } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col bg-soft-cream text-charcoal">
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-t-4 border-t-e3 border-b-2 border-b-e3">
       <HeaderNav client:load />
     </header>
     <main class="flex-1">
       <slot />
     </main>
-    <footer class="border-t mt-16">
-      <div class="mx-auto max-w-7xl px-4 py-12 grid gap-8 md:grid-cols-4">
-        <div class="flex flex-col items-center">
-          <img src="/images/vision828logo1_blackwithtaglinegraphicready.png" alt={site.name} class="h-8 w-auto mb-3" />
+    <footer class="mt-16 bg-e3 text-e3-900">
+      <div class="h-1.5 bg-gradient-to-r from-e3-900 via-e3-700 to-e3-200"></div>
+      <div class="mx-auto max-w-7xl px-4 py-12 grid gap-10 md:grid-cols-4">
+        <div class="flex flex-col items-center text-center">
+          <img src={site.logos.medium} alt={site.fullName} width="144" height="144" class="h-36 w-36 rounded-full bg-white p-1 shadow-md" loading="lazy" />
           <ShinyText
-            text="Serving with Purpose"
-            speed={3}
+            text={site.tagline}
+            speed={4}
             delay={1}
-            color="#6b7280"
-            shineColor="#1f2937"
+            color="#16385C"
+            shineColor="#ffffff"
             spread={120}
-            className="text-sm mt-1 italic"
-            client:load
+            className="text-sm mt-4 italic font-medium"
+            client:visible
           />
         </div>
-        <nav>
-          <h3 class="font-semibold mb-2">Explore</h3>
+        <nav aria-label="Footer">
+          <h3 class="font-bold uppercase tracking-wider text-sm mb-3">Explore</h3>
           <ul class="space-y-2 text-sm">
             <li><a href="/news" class="hover:underline">News</a></li>
             <li><a href="/events" class="hover:underline">Events</a></li>
             <li><a href="/resources/partner-directory" class="hover:underline">Directory</a></li>
-            <li><a href="/membership/join" class="hover:underline">Join</a></li>
+            <li><a href="/partnership/join" class="hover:underline">Join</a></li>
+            <li><a href={site.noahUrl} target="_blank" rel="noopener noreferrer" class="hover:underline">NOAH Platform</a></li>
           </ul>
         </nav>
         <div>
-          <h3 class="font-semibold mb-2">Contact</h3>
-          <p class="text-sm">{site.address}</p>
-          <p class="text-sm mt-1"><a class="underline" href={`tel:${site.phone}`}>{site.phone}</a></p>
-          <p class="text-sm mt-1"><a class="underline" href={`mailto:${site.email}`}>{site.email}</a></p>
+          <h3 class="font-bold uppercase tracking-wider text-sm mb-3">Contact</h3>
+          <p class="text-sm font-semibold">{site.address}</p>
+          <p class="text-sm mt-2"><a class="underline hover:text-white" href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}>{site.phone}</a></p>
+          <p class="text-sm mt-1"><a class="underline hover:text-white" href={`mailto:${site.email}`}>{site.email}</a></p>
         </div>
         <div>
-          <h3 class="font-semibold mb-2">Newsletter</h3>
-          <p class="text-sm text-gray-600">Stay connected with our community.</p>
+          <h3 class="font-bold uppercase tracking-wider text-sm mb-3">Our Purpose</h3>
+          <p class="text-sm leading-relaxed">{site.headline}</p>
         </div>
       </div>
-      <div class="text-center text-xs text-gray-500 py-4">© {new Date().getFullYear()} {site.name}</div>
+      <div class="bg-e3-900 text-e3-100 text-center text-xs py-4 px-4">
+        © {new Date().getFullYear()} {site.fullName} · A {site.brand} Center Of Excellence
+      </div>
     </footer>
   </body>
 </html>

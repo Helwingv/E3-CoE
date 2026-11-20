@@ -37,7 +37,7 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
         style={{ backgroundColor: '#ffffff' }}
       >
         <button
-          className="mb-6 text-lg font-medium text-gray-900 hover:text-brand transition-colors"
+          className="mb-6 text-lg font-medium text-gray-900 hover:text-e3-600 transition-colors"
           onClick={onClose}
           aria-label="Close menu"
         >
@@ -49,7 +49,7 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
               <div key={item.label}>
                 <button
                   onClick={() => setExpanded(expanded === item.label ? null : item.label)}
-                  className="w-full flex items-center justify-between text-gray-900 hover:text-brand transition-colors py-2.5 font-medium"
+                  className="w-full flex items-center justify-between text-gray-900 hover:text-e3-600 transition-colors py-2.5 font-medium"
                 >
                   {item.label}
                   <ChevronDown
@@ -66,7 +66,7 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
                       <a
                         key={child.href}
                         href={child.href}
-                        className="block text-sm text-gray-600 hover:text-brand transition-colors py-2"
+                        className="block text-sm text-gray-600 hover:text-e3-600 transition-colors py-2"
                       >
                         {child.label}
                       </a>
@@ -78,7 +78,8 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-900 hover:text-brand transition-colors py-2.5 font-medium"
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-gray-900 hover:text-e3-600 transition-colors py-2.5 font-medium"
               >
                 {item.label}
               </a>

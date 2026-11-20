@@ -77,7 +77,7 @@ export default function RegistrationsManager() {
         <select
           value={eventFilter}
           onChange={e => setEventFilter(e.target.value)}
-          className="px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#24a4b9]"
+          className="px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#5B9BD5]"
         >
           <option value="all">All Events</option>
           {events.map(e => (
@@ -88,7 +88,7 @@ export default function RegistrationsManager() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="w-8 h-8 border-2 border-[#24a4b9] border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-[#5B9BD5] border-t-transparent rounded-full animate-spin" />
         </div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-20 border border-dashed border-slate-700 rounded-2xl">
@@ -163,7 +163,7 @@ export default function RegistrationsManager() {
                         href={`/events/${reg.event_slug}`}
                         target="_blank"
                         rel="noopener"
-                        className="text-[#24a4b9] hover:underline text-sm"
+                        className="text-[#5B9BD5] hover:underline text-sm"
                       >
                         {reg.event_title}
                       </a>

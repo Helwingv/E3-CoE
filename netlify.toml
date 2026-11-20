@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Advocacy was replaced by NOAH; its pages now live under Resources.
+[[redirects]]
+  from = "/advocacy/policy-priorities"
+  to = "/resources/policy-priorities"
+  status = 301
+
+[[redirects]]
+  from = "/advocacy/collaboration"
+  to = "/resources/collaboration"
+  status = 301
+
+[[redirects]]
+  from = "/advocacy"
+  to = "https://noah.e3coe.com"
+  status = 301

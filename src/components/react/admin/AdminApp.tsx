@@ -17,7 +17,7 @@ function AdminShell({ session, onLogout }: { session: Session; onLogout: () => v
       onClick={() => setTab(id)}
       className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
         tab === id
-          ? "bg-[#24a4b9]/15 text-[#24a4b9] border border-[#24a4b9]/20"
+          ? "bg-[#5B9BD5]/15 text-[#5B9BD5] border border-[#5B9BD5]/20"
           : "text-slate-400 hover:text-white hover:bg-slate-800"
       }`}
     >
@@ -31,11 +31,11 @@ function AdminShell({ session, onLogout }: { session: Session; onLogout: () => v
       <aside className="w-60 flex-shrink-0 bg-slate-900 border-r border-slate-800 flex flex-col">
         <div className="p-5 border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#24a4b9]/10 border border-[#24a4b9]/20 flex items-center justify-center flex-shrink-0">
-              <div className="w-3 h-3 rounded-full bg-[#24a4b9]" />
+            <div className="w-8 h-8 rounded-lg bg-[#5B9BD5]/10 border border-[#5B9BD5]/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-3 h-3 rounded-full bg-[#5B9BD5]" />
             </div>
             <div>
-              <p className="text-white font-bold text-sm leading-none">Vision 8:28</p>
+              <p className="text-white font-bold text-sm leading-none">E3 CoE</p>
               <p className="text-slate-500 text-xs mt-0.5">Admin Panel</p>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default function AdminApp({ supabaseUrl, supabaseAnonKey }: AdminAppProps
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#24a4b9] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#5B9BD5] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
