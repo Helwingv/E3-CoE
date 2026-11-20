@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { type EventItem } from "../../../lib/supabase";
 import { useAdminSupabase } from "./supabaseContext";
+import { TABLES } from "../../../lib/tables";
 
 const generateSlug = (title: string) =>
   title.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -60,9 +61,9 @@ export default function EventForm({ event, onSaved, onCancel }: Props) {
 
     let err;
     if (isEdit) {
-      ({ error: err } = await supabase.from("events_items").update(payload).eq("id", event!.id));
+      ({ error: err } = await supabase.from(TABLES.events).update(payload).eq("id", event!.id));
     } else {
-      ({ error: err } = await supabase.from("events_items").insert(payload));
+      ({ error: err } = await supabase.from(TABLES.events).insert(payload));
     }
 
     if (err) {

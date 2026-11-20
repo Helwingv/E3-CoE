@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { type NewsArticle } from "../../../lib/supabase";
 import { useAdminSupabase } from "./supabaseContext";
 import NewsForm from "./NewsForm";
+import { TABLES } from "../../../lib/tables";
 
 type View = "list" | "create" | "edit";
 
@@ -16,7 +17,7 @@ export default function NewsManager() {
   const loadArticles = useCallback(async () => {
     setLoading(true);
     const { data } = await supabase
-      .from("news_articles")
+      .from(TABLES.news)
       .select("*")
       .order("created_at", { ascending: false });
     setArticles(data ?? []);
@@ -31,7 +32,7 @@ export default function NewsManager() {
   };
 
   const handleDelete = async (id: string) => {
-    await supabase.from("news_articles").delete().eq("id", id);
+    await supabase.from(TABLES.news).delete().eq("id", id);
     setDeleteId(null);
     loadArticles();
   };

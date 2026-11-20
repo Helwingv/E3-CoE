@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getSupabaseClient, type NewsArticle } from "../../lib/supabase";
+import { TABLES } from "../../lib/tables";
 
 const categoryConfig: Record<string, { label: string; color: string; bg: string }> = {
   "Press Release": { label: "Press Release", color: "text-blue-700", bg: "bg-blue-50" },
@@ -19,7 +20,7 @@ export default function NewsFilter() {
 
   useEffect(() => {
     getSupabaseClient()
-      .from("news_articles")
+      .from(TABLES.news)
       .select("*")
       .eq("is_published", true)
       .order("published_at", { ascending: false })

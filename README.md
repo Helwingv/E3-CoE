@@ -19,4 +19,4 @@ npm run dev
 
 ## Deploy (Netlify)
 
-Connect this repository in Netlify. `netlify.toml` sets the build command (`npm run build`), the publish folder (`dist`) and redirects from the old Advocacy pages. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` under environment variables, since the home, news and events pages read from Supabase.
+Connect this repository in Netlify. `netlify.toml` sets the build command (`npm run build`), the publish folder (`dist`) and redirects from the old Advocacy pages. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` under environment variables. E3 CoE uses the same Supabase project as Vision 8:28 but its own `e3_*` tables (see `src/lib/tables.ts` and the latest migration), so content stays separate.

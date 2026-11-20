@@ -1,4 +1,5 @@
 ---
+import { TABLES } from "../../lib/tables";
 export const prerender = false;
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -12,7 +13,7 @@ const supabase = createClient(
 );
 
 const { data: upcomingEvents } = await supabase
-  .from("events_items")
+  .from(TABLES.events)
   .select("id,title,slug,excerpt,event_date,end_date,venue,location")
   .eq("is_published", true)
   .gte("event_date", new Date().toISOString())

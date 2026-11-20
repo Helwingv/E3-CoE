@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAdminSupabase } from "./supabaseContext";
+import { TABLES } from "../../../lib/tables";
 
 interface Registration {
   id: string;
@@ -33,11 +34,11 @@ export default function RegistrationsManager() {
     setLoading(true);
     const [{ data: regs }, { data: evts }] = await Promise.all([
       supabase
-        .from("event_registrations")
+        .from(TABLES.registrations)
         .select("*")
         .order("created_at", { ascending: false }),
       supabase
-        .from("events_items")
+        .from(TABLES.events)
         .select("id,title")
         .eq("is_published", true)
         .order("event_date", { ascending: false }),
@@ -51,7 +52,7 @@ export default function RegistrationsManager() {
 
   const updateStatus = async (id: string, newStatus: string) => {
     await supabase
-      .from("event_registrations")
+      .from(TABLES.registrations)
       .update({ status: newStatus })
       .eq("id", id);
     setRegistrations(prev =>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getSupabaseClient, type NewsArticle } from "../../lib/supabase";
+import { TABLES } from "../../lib/tables";
 
 export default function NewsLatest() {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -7,7 +8,7 @@ export default function NewsLatest() {
 
   useEffect(() => {
     getSupabaseClient()
-      .from("news_articles")
+      .from(TABLES.news)
       .select("id,title,slug,excerpt,category,author,image_url,published_at")
       .eq("is_published", true)
       .order("published_at", { ascending: false })

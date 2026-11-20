@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getSupabaseClient } from "../../lib/supabase";
+import { TABLES } from "../../lib/tables";
 
 interface Props {
   eventId: string;
@@ -33,7 +34,7 @@ export default function EventRegistrationForm({ eventId, eventTitle, eventSlug, 
     setErrorMsg("");
 
     const { error } = await getSupabaseClient()
-      .from("event_registrations")
+      .from(TABLES.registrations)
       .insert({
         event_id: eventId,
         event_title: eventTitle,

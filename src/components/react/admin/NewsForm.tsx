@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { type NewsArticle } from "../../../lib/supabase";
 import { useAdminSupabase } from "./supabaseContext";
+import { TABLES } from "../../../lib/tables";
 
 const CATEGORIES = ["General", "Announcement", "Policy", "Research", "Community Impact", "Media Coverage", "Partnership"];
 
@@ -55,9 +56,9 @@ export default function NewsForm({ article, onSaved, onCancel }: Props) {
 
     let err;
     if (isEdit) {
-      ({ error: err } = await supabase.from("news_articles").update(payload).eq("id", article!.id));
+      ({ error: err } = await supabase.from(TABLES.news).update(payload).eq("id", article!.id));
     } else {
-      ({ error: err } = await supabase.from("news_articles").insert(payload));
+      ({ error: err } = await supabase.from(TABLES.news).insert(payload));
     }
 
     if (err) {

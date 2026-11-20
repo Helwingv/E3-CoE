@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { type EventItem } from "../../../lib/supabase";
 import { useAdminSupabase } from "./supabaseContext";
 import EventForm from "./EventForm";
+import { TABLES } from "../../../lib/tables";
 
 type View = "list" | "create" | "edit";
 
@@ -16,7 +17,7 @@ export default function EventsManager() {
   const loadEvents = useCallback(async () => {
     setLoading(true);
     const { data } = await supabase
-      .from("events_items")
+      .from(TABLES.events)
       .select("*")
       .order("event_date", { ascending: false });
     setEvents(data ?? []);
@@ -31,7 +32,7 @@ export default function EventsManager() {
   };
 
   const handleDelete = async (id: string) => {
-    await supabase.from("events_items").delete().eq("id", id);
+    await supabase.from(TABLES.events).delete().eq("id", id);
     setDeleteId(null);
     loadEvents();
   };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getSupabaseClient, type EventItem } from "../../lib/supabase";
+import { TABLES } from "../../lib/tables";
 
 export default function EventsLatest() {
   const [events, setEvents] = useState<EventItem[]>([]);
@@ -8,7 +9,7 @@ export default function EventsLatest() {
 
   useEffect(() => {
     let query = getSupabaseClient()
-      .from("events_items")
+      .from(TABLES.events)
       .select("id,title,slug,excerpt,event_date,end_date,venue,location,rsvp_url")
       .eq("is_published", true)
       .order("event_date", { ascending: true })
