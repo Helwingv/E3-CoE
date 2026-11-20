@@ -5,9 +5,9 @@ import { site } from "../config/site";
 <PageLayout title="Contact" intro="We'd love to hear from you.">
   <p class="mb-2">Call us at <a class="underline" href={`tel:${site.phone}`}>{site.phone}</a>.</p>
   <p class="mb-4">Email us at <a class="underline" href={`mailto:${site.email}`}>{site.email}</a>.</p>
-  <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="grid gap-3 max-w-lg">
+  <form name="contact" method="POST" data-e3-form class="grid gap-3 max-w-lg">
     <input type="hidden" name="form-name" value="contact" />
-    <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+    <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
     <input name="name" required placeholder="Your name" class="border rounded-md px-3 py-2" />
     <input name="email" required type="email" placeholder="you@example.com" class="border rounded-md px-3 py-2" />
     <textarea name="message" rows="5" placeholder="How can we help?" class="border rounded-md px-3 py-2"></textarea>

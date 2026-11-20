@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Forms</title></head>
+<body>
+<!--
+  Netlify Forms only detects forms in static HTML. Some pages that hold forms
+  are rendered on request, so every site form is declared here and the site
+  posts submissions to this file (see src/scripts/forms.ts).
+  Keep field names in sync with the forms on the pages.
+-->
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="name"><input name="email"><textarea name="message"></textarea>
+</form>
+<form name="project-inquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="name"><input name="title"><input name="organization"><input name="region"><input name="focus"><textarea name="challenge"></textarea>
+</form>
+<form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="name"><input name="email"><input name="organization">
+</form>
+<form name="network-access" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="name"><input name="organization"><input name="email"><input name="policy_interest">
+</form>
+<form name="partnership-interest" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="organization"><input name="name"><input name="email"><input name="sector"><input name="tier"><textarea name="message"></textarea>
+</form>
+</body>
+</html>

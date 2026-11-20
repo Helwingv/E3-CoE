@@ -566,28 +566,31 @@ import StickyCTA from "../components/StickyCTA.astro";
             </div>
             <div class="bg-slate-800 p-12 lg:p-16 flex flex-col justify-center">
               <h3 class="text-xl font-bold mb-6">Start A Project Conversation</h3>
-              <form class="space-y-4" onsubmit="return false;">
+              <form name="project-inquiry" method="POST" data-e3-form class="space-y-4">
+                <input type="hidden" name="form-name" value="project-inquiry" />
+                <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
                 <div class="grid grid-cols-2 gap-4">
                   <div>
                     <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-name">Full Name</label>
-                    <input id="inq-name" type="text" placeholder="Your name" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
+                    <input name="name" id="inq-name" type="text" placeholder="Your name" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
                   </div>
                   <div>
                     <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-title">Title</label>
-                    <input id="inq-title" type="text" placeholder="Your role" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
+                    <input name="title" id="inq-title" type="text" placeholder="Your role" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
                   </div>
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-org">Organization</label>
-                  <input id="inq-org" type="text" placeholder="Your organization" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
+                  <input name="organization" id="inq-org" type="text" placeholder="Your organization" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-region">Region / Market</label>
-                  <input id="inq-region" type="text" placeholder="Your region or market" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
+                  <input name="region" id="inq-region" type="text" placeholder="Your region or market" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm" />
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-type">Project Focus</label>
-                  <select id="inq-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm">
+                  <select name="focus" id="inq-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm">
                     <option value="" disabled selected>Select a focus area</option>
                     <option>Economic Strategy Development</option>
                     <option>Small Business Ecosystem</option>
@@ -598,12 +601,12 @@ import StickyCTA from "../components/StickyCTA.astro";
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="inq-challenge">Describe Your Challenge</label>
-                  <textarea id="inq-challenge" rows="3" placeholder="Brief overview of your regional challenge or project idea..." class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm resize-none"></textarea>
+                  <textarea name="challenge" id="inq-challenge" rows="3" placeholder="Brief overview of your regional challenge or project idea..." class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent text-sm resize-none"></textarea>
                 </div>
                 <div class="pt-2">
-                  <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#3D7FC1] transition-colors duration-200">
+                  <button type="submit" class="w-full block text-center bg-[#5B9BD5] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#3D7FC1] transition-colors duration-200">
                     Start A Project Conversation
-                  </a>
+                  </button>
                 </div>
               </form>
             </div>

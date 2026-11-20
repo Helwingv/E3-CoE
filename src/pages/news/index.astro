@@ -520,10 +520,13 @@ const { data: latestArticle } = supabase
             </div>
             <div class="bg-slate-800 p-12 lg:p-16 flex flex-col justify-center">
               <h3 class="text-xl font-bold mb-6">Subscribe To E3 CoE News</h3>
-              <form class="space-y-4" onsubmit="return false;">
+              <form name="newsletter" method="POST" data-e3-form class="space-y-4">
+                <input type="hidden" name="form-name" value="newsletter" />
+                <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-name">Full Name</label>
-                  <input
+                  <input name="name"
                     id="sub-name"
                     type="text"
                     placeholder="Your full name"
@@ -532,7 +535,7 @@ const { data: latestArticle } = supabase
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-email">Email Address</label>
-                  <input
+                  <input name="email" required
                     id="sub-email"
                     type="email"
                     placeholder="your@organization.org"
@@ -541,7 +544,7 @@ const { data: latestArticle } = supabase
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-org">Organization</label>
-                  <input
+                  <input name="organization"
                     id="sub-org"
                     type="text"
                     placeholder="Your organization"
@@ -549,9 +552,9 @@ const { data: latestArticle } = supabase
                   />
                 </div>
                 <div class="pt-2 space-y-3">
-                  <a href="/contact" class="block text-center bg-[#5B9BD5] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#3D7FC1] transition-colors duration-200">
+                  <button type="submit" class="w-full block text-center bg-[#5B9BD5] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#3D7FC1] transition-colors duration-200">
                     Subscribe To E3 CoE News
-                  </a>
+                  </button>
                   <a href="/contact" class="block text-center bg-white/10 border border-white/20 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-white/20 transition-colors duration-200">
                     Customize Your Updates
                   </a>

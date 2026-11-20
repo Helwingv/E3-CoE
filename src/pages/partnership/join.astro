@@ -176,26 +176,29 @@ import StickyCTA from "../../components/StickyCTA.astro";
         </div>
 
         <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-          <form class="space-y-6">
+          <form name="partnership-interest" method="POST" data-e3-form class="space-y-6">
+                <input type="hidden" name="form-name" value="partnership-interest" />
+                <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Organization Name</label>
-                <input type="text" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="Your organization" />
+                <input name="organization" type="text" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="Your organization" />
               </div>
               <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Primary Contact Name</label>
-                <input type="text" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="Full name" />
+                <input name="name" type="text" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="Full name" />
               </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
-                <input type="email" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="you@organization.com" />
+                <input name="email" required type="email" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition" placeholder="you@organization.com" />
               </div>
               <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Sector</label>
-                <select class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition bg-white">
+                <select name="sector" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition bg-white">
                   <option value="">Select your sector</option>
                   <option>Economic Development</option>
                   <option>Corporate / Private Sector</option>
@@ -211,7 +214,7 @@ import StickyCTA from "../../components/StickyCTA.astro";
 
             <div>
               <label class="block text-sm font-semibold text-slate-700 mb-2">Partnership Tier of Interest</label>
-              <select class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition bg-white">
+              <select name="tier" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition bg-white">
                 <option value="">Select a tier</option>
                 <option>Founding Partner</option>
                 <option>Strategic Partner</option>
@@ -224,7 +227,7 @@ import StickyCTA from "../../components/StickyCTA.astro";
 
             <div>
               <label class="block text-sm font-semibold text-slate-700 mb-2">Tell Us About Your Organization & Goals</label>
-              <textarea rows="4" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition resize-none" placeholder="Describe your mission, your regional focus, and what you hope to achieve through partnership with E3 CoE..."></textarea>
+              <textarea name="message" rows="4" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B9BD5] focus:border-transparent transition resize-none" placeholder="Describe your mission, your regional focus, and what you hope to achieve through partnership with E3 CoE..."></textarea>
             </div>
 
             <button
