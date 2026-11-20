@@ -1,13 +1,40 @@
 ---
-const { title = "E3 CoE", description = "Serving With Purpose", image = "/images/e3coe-logo-large.png" } = Astro.props;
+import { site } from "../config/site";
+
+const {
+  title = `${site.name} | Center Of Excellence`,
+  description = site.tagline,
+  image = site.logos.large,
+  type = "website",
+  noindex = false
+} = Astro.props;
+
+const base = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(Astro.url.pathname, base).href;
+const imageUrl = new URL(image, base).href;
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:site_name" content={site.fullName} />
+<meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={`${site.fullName} logo`} />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
 <meta name="theme-color" content="#5B9BD5" />
