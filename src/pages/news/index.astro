@@ -6,20 +6,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import StickyCTA from "../../components/StickyCTA.astro";
 import NewsFilter from "../../components/react/NewsFilter";
 import NewsLatest from "../../components/react/NewsLatest";
-import { createClient } from "@supabase/supabase-js";
+import { getServerSupabase } from "../../lib/serverSupabase";
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+const supabase = getServerSupabase();
 
-const { data: latestArticle } = await supabase
+const { data: latestArticle } = supabase
+  ? await supabase
   .from(TABLES.news)
   .select("*")
   .eq("is_published", true)
   .order("published_at", { ascending: false })
   .limit(1)
-  .maybeSingle();
+  .maybeSingle()
+  : { data: null };
 ---
 
 <BaseLayout

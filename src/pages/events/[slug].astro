@@ -3,23 +3,22 @@ import { TABLES } from "../../lib/tables";
 export const prerender = false;
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { createClient } from "@supabase/supabase-js";
+import { getServerSupabase } from "../../lib/serverSupabase";
 import { marked } from "marked";
 import EventRegistrationForm from "../../components/react/EventRegistrationForm";
 
 const { slug } = Astro.params;
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+const supabase = getServerSupabase();
 
-const { data: event } = await supabase
+const { data: event } = supabase
+  ? await supabase
   .from(TABLES.events)
   .select("*")
   .eq("slug", slug)
   .eq("is_published", true)
-  .maybeSingle();
+  .maybeSingle()
+  : { data: null };
 
 if (!event) {
   return new Response(null, { status: 404 });
