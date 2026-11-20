@@ -1,8 +1,8 @@
 ---
-orgName: "Grand Strand Community Partners"
+orgName: "Community Partners Network"
 url: "#"
 sector: "Nonprofit"
-county: "Horry"
+county: "National"
 ---
 
 Partner description (optional).

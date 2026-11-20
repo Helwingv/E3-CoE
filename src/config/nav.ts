@@ -20,7 +20,6 @@ export const nav: NavItem[] = [
     label: "Programs",
     children: [
       { label: "Community Impact", href: "/programs/community-impact" },
-      { label: "Food Program", href: "/programs/food-program" },
       { label: "Small Business & EDC", href: "/programs/small-business-edc" },
       { label: "Local & Regional", href: "/programs/local-regional" },
       { label: "Advocacy & Leadership", href: "/programs/advocacy-leadership" },

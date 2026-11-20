@@ -1,7 +1,7 @@
 ---
 title: "From Idea to Impact: A Micro-Grant Story"
 sector: "Entrepreneurship"
-county: "Horry"
+county: "National"
 outcomes:
   - "12 jobs retained"
   - "3 new microenterprises launched"

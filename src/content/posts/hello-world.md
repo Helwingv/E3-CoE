@@ -1,7 +1,7 @@
 ---
 title: "Welcome to E3 CoE"
 date: "2025-11-09"
-excerpt: "Launching our refreshed platform to serve Horry County and the Grand Strand Region."
+excerpt: "Launching the E3 CoE platform to serve communities across the United States."
 tags: ["announcement"]
 ---
 

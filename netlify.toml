@@ -20,3 +20,9 @@
   from = "/advocacy"
   to = "https://noah.e3coe.com"
   status = 301
+
+# The food program was a Vision 8:28 partnership and isn't part of E3 CoE.
+[[redirects]]
+  from = "/programs/food-program"
+  to = "/programs/community-impact"
+  status = 301
