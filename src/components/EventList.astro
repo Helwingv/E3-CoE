@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+
+const { limit = 10 } = Astro.props;
+const events = (await getCollection("events"))
+  .sort((a, b) => (a.data.date < b.data.date ? 1 : -1))
+  .slice(0, limit);
+---
+<ul class="grid md:grid-cols-3 gap-6">
+  {events.map(e => (
+    <li class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+      <h3 class="font-semibold">
+        <a href={`/events/${e.slug}`} class="hover:text-brand">{e.data.title}</a>
+      </h3>
+      <p class="text-sm text-gray-600 mt-1">{new Date(e.data.date).toLocaleDateString()}</p>
+      {e.data.location && <p class="text-xs text-gray-500">{e.data.location}</p>}
+    </li>
+  ))}
+</ul>

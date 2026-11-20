@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { title, description, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="sticky bottom-0 z-40">
+  <div class="py-4 px-4 sm:px-6 lg:px-8">
+    <div class="rounded-xl bg-slate-900 text-white px-6 py-5 shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4 max-w-7xl mx-auto">
+      <div>
+        <h2 class="text-lg md:text-xl font-bold">
+          {title}
+        </h2>
+        <p class="text-sm text-white/80 mt-1">
+          {description}
+        </p>
+      </div>
+
+      <a
+        href={ctaHref}
+        class="inline-flex items-center justify-center rounded-md bg-[#24a4b9] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1d8a9d] transition whitespace-nowrap"
+      >
+        {ctaText} →
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,199 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StickyCTA from "../../components/StickyCTA.astro";
+import { getCollection } from "astro:content";
+
+const stories = await getCollection("stories");
+---
+
+<BaseLayout
+  title="Success Stories | Programs | Vision 8:28"
+  description="Real communities. Real partners. Real outcomes. Proof that strategy and execution work."
+>
+  <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-32 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMSAyLjY5LTYgNi02czYgMi42OSA2IDYtMi42OSA2LTYgNi02LTIuNjktNi02ek0yMCA0NmMtMy4zMSAwLTYtMi42OS02LTZzMi42OS02IDYtNiA2IDIuNjkgNiA2LTIuNjkgNi02IDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl">
+          <div class="mb-8">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Proof That Strategy + Execution Works
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+              Real communities. Real partners. Real outcomes.
+            </p>
+          </div>
+          <a
+            href="#stories"
+            class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+          >
+            Read the Stories
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-6">
+            Why Does This Matter?
+          </h2>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Because economic development earns trust when results are visible and repeatable.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-20">
+          <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">
+              Community Transformation
+            </h3>
+            <p class="text-sm text-slate-600">
+              → From stalled initiative to sustainable growth
+            </p>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">
+              Small Business Breakthroughs
+            </h3>
+            <p class="text-sm text-slate-600">
+              → Entrepreneurs scaling with support and capital
+            </p>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">
+              Workforce Wins
+            </h3>
+            <p class="text-sm text-slate-600">
+              → Talent pipelines meeting employer demand
+            </p>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">
+              Regional Alignment
+            </h3>
+            <p class="text-sm text-slate-600">
+              → Fragmented efforts unified into action
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">
+            Featured Success Stories
+          </h2>
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+            Each story includes metrics, timelines, and partner voices.
+          </p>
+        </div>
+
+        {stories.length > 0 ? (
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {stories.map(story => (
+              <article class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-200">
+                <div class="mb-4">
+                  <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                    {story.data.title}
+                  </h3>
+                  {story.data.sector && story.data.county && (
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="inline-block px-3 py-1 bg-[#24a4b9] bg-opacity-10 text-[#24a4b9] rounded-full text-sm font-medium">
+                        {story.data.sector}
+                      </span>
+                      <span class="inline-block px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                        {story.data.county}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {story.data.outcomes && story.data.outcomes.length > 0 && (
+                  <div>
+                    <h4 class="font-semibold text-slate-900 mb-3">Key Outcomes:</h4>
+                    <ul class="space-y-2">
+                      {story.data.outcomes.map(outcome => (
+                        <li class="flex items-start gap-2">
+                          <svg class="w-5 h-5 text-[#24a4b9] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          <span class="text-slate-600">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-12">
+            <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <p class="text-slate-600 text-lg mb-6">Success stories coming soon.</p>
+            <a
+              href="/contact"
+              class="inline-block bg-[#24a4b9] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1d8a9d] transition-colors duration-200"
+            >
+              Submit a Success Story
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-2xl font-bold text-slate-900 mb-4">
+          Have a success story to share?
+        </h3>
+        <p class="text-slate-600 mb-8">
+          We'd love to feature your partnership outcomes and community impact.
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+        >
+          Submit a Success Story
+        </a>
+      </div>
+    </section>
+
+    <StickyCTA
+      title="Partner With Vision 8:28"
+      description="Join us in delivering measurable economic outcomes for communities across the region."
+      ctaText="Partner With Vision 8:28"
+      ctaHref="/partnership/join"
+    />
+  </div>
+</BaseLayout>

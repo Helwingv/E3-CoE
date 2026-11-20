@@ -1,0 +1,224 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StickyCTA from "../../components/StickyCTA.astro";
+---
+
+<BaseLayout
+  title="Supporters | Partnership | Vision 8:28"
+  description="Vision 8:28 is strengthened by organizations and individuals who believe economic development is a shared responsibility."
+>
+  <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-32 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMSAyLjY5LTYgNi02czYgMi42OSA2IDYtMi42OSA2LTYgNi02LTIuNjktNi02ek0yMCA0NmMtMy4zMSAwLTYtMi42OS02LTZzMi42OS02IDYtNiA2IDIuNjkgNiA2LTIuNjkgNi02IDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl">
+          <div class="mb-8">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Powered By Visionary Supporters
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+              Vision 8:28 is strengthened by organizations and individuals who believe economic development is a shared responsibility.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#become-supporter"
+              class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+            >
+              Become A Supporter
+            </a>
+            <a
+              href="/contact"
+              class="inline-block bg-white/10 border border-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
+            >
+              Sponsor A Program
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-6">
+            How Supporters Power Our Work
+          </h2>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Through their commitment, we scale impact and accelerate outcomes across every community we serve.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Capital Investment",
+              description: "Direct financial investment that funds program delivery, staff capacity, and strategic initiatives.",
+              icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            },
+            {
+              title: "Grant Funding",
+              description: "Targeted grants that support research, community pilots, and high-impact economic development programs.",
+              icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            },
+            {
+              title: "In-Kind Expertise",
+              description: "Professional services, technical support, and institutional knowledge donated to strengthen our operations.",
+              icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            },
+            {
+              title: "Policy Advocacy",
+              description: "Using organizational influence to advance the policy conditions that enable regional economic growth.",
+              icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            },
+            {
+              title: "Program Sponsorship",
+              description: "Direct sponsorship of events, training series, and community programs — with co-branding and public recognition.",
+              icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            },
+            {
+              title: "Event Sponsorship",
+              description: "Funding and activating presence at flagship Vision 8:28 summits, convenings, and community events.",
+              icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            }
+          ].map(item => (
+            <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-200">
+              <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mb-5">
+                <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">
+            Supporter Recognition
+          </h2>
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+            Our supporters are recognized across five categories — each reflecting a distinct form of commitment to community and economic transformation.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          {[
+            { category: "Founding Supporters", color: "amber", description: "Those who believed and invested from the beginning" },
+            { category: "Corporate Sponsors", color: "cyan", description: "Businesses driving private sector alignment" },
+            { category: "Institutional Backers", color: "slate", description: "Academic and governmental institutional investors" },
+            { category: "Philanthropic Investors", color: "green", description: "Foundations and donors investing in systemic change" },
+            { category: "Community Champions", color: "blue", description: "Local leaders amplifying impact on the ground" }
+          ].map(item => (
+            <div class="bg-white border border-slate-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow duration-200">
+              <div class="w-14 h-14 bg-[#24a4b9] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-7 h-7 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">{item.category}</h3>
+              <p class="text-slate-500 text-xs leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 bg-white border border-slate-200 rounded-2xl p-10 max-w-4xl mx-auto text-center">
+          <div class="mb-6">
+            <svg class="w-10 h-10 text-slate-300 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 5a1 1 0 000 2h.01A1 1 0 004 5zm2 3a1 1 0 000 2h8a1 1 0 100-2H6zm10 0a1 1 0 100 2h.01a1 1 0 100-2H16zM4 11a1 1 0 000 2h.01A1 1 0 004 11zm2 3a1 1 0 000 2h8a1 1 0 100-2H6zm10 0a1 1 0 100 2h.01a1 1 0 100-2H16zM4 17a1 1 0 000 2h.01A1 1 0 004 17zm2 2a1 1 0 100-2H6a1 1 0 100 2zm10-2a1 1 0 100 2h.01a1 1 0 100-2H16z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">Supporter Logos Coming Soon</h3>
+          <p class="text-slate-500">
+            As our supporter network grows, recognized logos will be displayed here by category.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">
+            Impact Transparency
+          </h2>
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+            Supporters receive direct visibility into how their investment drives measurable outcomes.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Annual Impact Reports",
+              description: "Detailed year-end documentation of outcomes, reach, and community transformation.",
+              icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            },
+            {
+              title: "Data Dashboards",
+              description: "Real-time access to regional economic metrics, program performance, and investment impact.",
+              icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            },
+            {
+              title: "Recognition At Events",
+              description: "Prominent acknowledgment at all Vision 8:28 summits, convenings, and public programs.",
+              icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            },
+            {
+              title: "Executive Briefings",
+              description: "Quarterly briefings with Vision 8:28 leadership on strategy, pipeline, and regional outlook.",
+              icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+            }
+          ].map(item => (
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow duration-200">
+              <div class="w-12 h-12 bg-[#24a4b9] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path>
+                </svg>
+              </div>
+              <h3 class="font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="become-supporter" class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          The Future Of Community & Economic Development Is Collaborative.
+        </h2>
+        <p class="text-slate-300 text-xl mb-10 leading-relaxed">
+          If your organization believes in measurable impact, sustainable growth, and resilient communities — Vision 8:28 is your strategic partner.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+          >
+            Become A Supporter
+          </a>
+          <a
+            href="/contact"
+            class="inline-block bg-white/10 border border-white/20 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
+          >
+            Sponsor A Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <StickyCTA
+      title="Partner With Vision 8:28"
+      description="Support the work that builds resilient, opportunity-driven communities across the region."
+      ctaText="Become A Supporter"
+      ctaHref="/contact"
+    />
+  </div>
+</BaseLayout>

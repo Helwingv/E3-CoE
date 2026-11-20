@@ -1,0 +1,154 @@
+---
+export const prerender = false;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { createClient } from "@supabase/supabase-js";
+import { marked } from "marked";
+import EventRegistrationForm from "../../components/react/EventRegistrationForm";
+
+const { slug } = Astro.params;
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
+const { data: event } = await supabase
+  .from("events_items")
+  .select("*")
+  .eq("slug", slug)
+  .eq("is_published", true)
+  .maybeSingle();
+
+if (!event) {
+  return new Response(null, { status: 404 });
+}
+
+const contentHtml = event.content ? await marked.parse(event.content) : "";
+
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+const fmtTime = (iso: string) =>
+  new Date(iso).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+const isPast = new Date(event.event_date) < new Date();
+---
+
+<BaseLayout title={`${event.title} | Vision 8:28`} description={event.excerpt}>
+  <div class="min-h-screen bg-white">
+    <!-- Event Header -->
+    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <a href="/events" class="inline-flex items-center gap-2 text-slate-400 hover:text-[#24a4b9] text-sm font-medium mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Events
+        </a>
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span class={`text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest ${isPast ? "text-slate-400 bg-slate-700" : "text-[#24a4b9] bg-[#24a4b9]/10"}`}>
+            {isPast ? "Past Event" : "Upcoming Event"}
+          </span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">{event.title}</h1>
+        {event.excerpt && (
+          <p class="text-slate-300 text-xl leading-relaxed">{event.excerpt}</p>
+        )}
+      </div>
+    </div>
+
+    <!-- Event Details + Content -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Body content -->
+        <div class="lg:col-span-2">
+          {contentHtml ? (
+            <div
+              class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-[#24a4b9] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 prose-blockquote:border-[#24a4b9]"
+              set:html={contentHtml}
+            />
+          ) : (
+            <p class="text-slate-500 text-lg">Details for this event will be posted soon.</p>
+          )}
+        </div>
+
+        <!-- Sidebar: event meta -->
+        <aside class="space-y-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-5">
+            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Event Details</h2>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-[#24a4b9]/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-0.5">Date</p>
+                <p class="text-slate-800 font-semibold text-sm">{fmtDate(event.event_date)}</p>
+                <p class="text-slate-500 text-xs">{fmtTime(event.event_date)}{event.end_date ? ` – ${fmtTime(event.end_date)}` : ""}</p>
+              </div>
+            </div>
+
+            {(event.venue || event.location) && (
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-[#24a4b9]/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-0.5">Location</p>
+                  {event.venue && <p class="text-slate-800 font-semibold text-sm">{event.venue}</p>}
+                  {event.location && <p class="text-slate-500 text-xs">{event.location}</p>}
+                </div>
+              </div>
+            )}
+
+            {!isPast && (
+              <a
+                href="#registration"
+                class="block text-center bg-[#24a4b9] text-white px-5 py-3 rounded-xl font-semibold text-sm hover:bg-[#1d8a9d] transition-colors mt-2"
+              >
+                Register / RSVP
+              </a>
+            )}
+          </div>
+
+          <a
+            href="/events"
+            class="flex items-center gap-2 text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            All Events
+          </a>
+        </aside>
+      </div>
+
+      {!isPast && (
+        <div id="registration" class="mt-12 scroll-mt-8">
+          <EventRegistrationForm
+            client:load
+            eventId={event.id}
+            eventTitle={event.title}
+            eventSlug={event.slug}
+            isPast={isPast}
+          />
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>

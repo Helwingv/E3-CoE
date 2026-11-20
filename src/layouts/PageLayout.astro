@@ -1,0 +1,12 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { title, intro } = Astro.props;
+---
+<BaseLayout title={title} description={intro}>
+  <section class="mx-auto max-w-5xl px-4 py-12">
+    <h1 class="text-3xl font-bold mb-4">{title}</h1>
+    {intro && <p class="text-lg text-gray-700 mb-8">{intro}</p>}
+    <slot />
+  </section>
+</BaseLayout>

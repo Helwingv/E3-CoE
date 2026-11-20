@@ -1,0 +1,605 @@
+---
+export const prerender = false;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StickyCTA from "../../components/StickyCTA.astro";
+import NewsFilter from "../../components/react/NewsFilter";
+import NewsLatest from "../../components/react/NewsLatest";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
+const { data: latestArticle } = await supabase
+  .from("news_articles")
+  .select("*")
+  .eq("is_published", true)
+  .order("published_at", { ascending: false })
+  .limit(1)
+  .maybeSingle();
+---
+
+<BaseLayout
+  title="News | Vision 8:28"
+  description="Stay informed on Vision 8:28 initiatives, policy developments, partnership milestones, research releases, and community transformation stories."
+>
+  <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+
+    <!-- HERO -->
+    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-32 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMSAyLjY5LTYgNi02czYgMi42OSA2IDYtMi42OSA2LTYgNi02LTIuNjktNi02ek0yMCA0NmMtMy4zMSAwLTYtMi42OS02LTZzMi42OS02IDYtNiA2IDIuNjkgNiA2LTIuNjkgNi02IDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8">
+            <div class="w-2 h-2 rounded-full bg-[#24a4b9] animate-pulse"></div>
+            <span class="text-sm font-semibold text-white/90 uppercase tracking-widest">Newsroom</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Insights. Announcements.<br />Impact.
+          </h1>
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-3">
+            Stay informed on Vision 8:28 initiatives, policy developments, partnership milestones, research releases, and community transformation stories shaping the future of economic development.
+          </p>
+          <p class="text-lg text-[#24a4b9] font-semibold mb-10">
+            This is where progress becomes public.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#newsroom"
+              class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+            >
+              Read The Latest News
+            </a>
+            <a
+              href="#subscribe"
+              class="inline-block bg-white/10 border border-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
+            >
+              Subscribe To Updates
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED STORY -->
+    {latestArticle && (
+      <section class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-6">Featured Announcement</div>
+          <div class="bg-slate-900 text-white rounded-2xl overflow-hidden">
+            <div class="grid lg:grid-cols-5">
+              <div class="lg:col-span-3 p-10 lg:p-14 flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 bg-[#24a4b9]/20 border border-[#24a4b9]/30 rounded-full px-4 py-1.5 mb-6">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#24a4b9]"></div>
+                    <span class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest">{latestArticle.category}</span>
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">
+                    {latestArticle.title}
+                  </h2>
+                  {latestArticle.excerpt && (
+                    <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                      {latestArticle.excerpt}
+                    </p>
+                  )}
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href={`/news/${latestArticle.slug}`} class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#1d8a9d] transition-colors duration-200">
+                    Read Full Release
+                  </a>
+                  <a href="/contact" class="inline-block bg-white/10 border border-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors duration-200">
+                    Download Press Release
+                  </a>
+                </div>
+              </div>
+              <div class="lg:col-span-2 bg-slate-800 p-10 flex flex-col justify-center">
+                <h3 class="text-lg font-bold text-white mb-6 uppercase tracking-widest text-sm">Media Contact</h3>
+                <div class="space-y-5 mb-8">
+                  <div class="flex items-start gap-4">
+                    <div class="w-9 h-9 bg-[#24a4b9]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Press Inquiries</p>
+                      <p class="text-white font-medium text-sm">communications@vision828.org</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="w-9 h-9 bg-[#24a4b9]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Media Line</p>
+                      <p class="text-white font-medium text-sm">Available upon request</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="w-9 h-9 bg-[#24a4b9]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Press Kit</p>
+                      <a href="/contact" class="text-[#24a4b9] font-semibold text-sm hover:underline">Download Media Kit &rarr;</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-6 border-t border-slate-700">
+                  <p class="text-slate-400 text-xs uppercase tracking-widest mb-3">Publication Date</p>
+                  <p class="text-white font-medium">{new Date(latestArticle.published_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- NEWSROOM FILTER -->
+    <section id="newsroom" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div>
+            <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-3">All News</div>
+            <h2 class="text-4xl font-bold text-slate-900">The Vision 8:28 Newsroom</h2>
+          </div>
+          <p class="text-slate-600 max-w-md">
+            Filter by category, search by topic, region, or initiative — or browse the full archive.
+          </p>
+        </div>
+        <NewsFilter client:load />
+      </div>
+    </section>
+
+    <!-- THOUGHT LEADERSHIP -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">Thought Leadership</div>
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">Policy & Strategy Insights</h2>
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+            Vision 8:28 leadership and partners provide expert analysis on the issues shaping regional economic transformation.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+          {[
+            {
+              type: "Executive Op-Ed",
+              title: "Why Public-Private Partnerships Fail — And What Fixes Them",
+              author: "Vision 8:28 Executive Director",
+              excerpt: "Most PPPs fail not from lack of funding, but from misaligned incentives and absent accountability frameworks. Here is a practitioner's guide to structuring partnerships that produce results.",
+              date: "Jan 22, 2026",
+              readTime: "7 min read"
+            },
+            {
+              type: "Policy Commentary",
+              title: "The Workforce Credential Crisis Is a Structural Problem — Not a Training Problem",
+              author: "Vision 8:28 Policy Team",
+              excerpt: "Reframing workforce development around competency recognition and employer-validated credentials — why the current model is broken and what a regional solution looks like.",
+              date: "Jan 8, 2026",
+              readTime: "9 min read"
+            },
+            {
+              type: "Research Analysis",
+              title: "Small Business Ecosystems and Regional Competitiveness: What the Data Shows",
+              author: "Vision 8:28 Research Division",
+              excerpt: "Analysis of 14 regional markets reveals a direct correlation between small business density, procurement accessibility, and regional GDP growth — with actionable policy implications.",
+              date: "Dec 11, 2025",
+              readTime: "11 min read"
+            },
+            {
+              type: "Co-Authored Article",
+              title: "Aligning Capital to Community: A Framework for Impact-First Investment",
+              author: "Vision 8:28 & Partner Institution",
+              excerpt: "A collaborative framework developed with regional EDC partners and financial institutions for deploying capital in underserved markets without sacrificing investor return expectations.",
+              date: "Nov 30, 2025",
+              readTime: "8 min read"
+            }
+          ].map(article => (
+            <article class="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-200 flex flex-col group">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#24a4b9] bg-[#24a4b9]/10 px-3 py-1 rounded-full">{article.type}</span>
+                <span class="text-slate-400 text-xs">{article.date}</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover:text-[#24a4b9] transition-colors duration-150">{article.title}</h3>
+              <p class="text-slate-600 text-sm leading-relaxed flex-1 mb-5">{article.excerpt}</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <p class="text-slate-500 text-xs font-medium">{article.author}</p>
+                <span class="text-slate-400 text-xs">{article.readTime}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/contact" class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg">
+            Explore All Insights
+          </a>
+          <a href="/contact" class="inline-block border-2 border-slate-300 text-slate-700 px-10 py-4 rounded-lg font-semibold text-lg hover:border-slate-400 transition-colors duration-200">
+            Submit A Guest Article
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY IMPACT STORIES -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">Impact Stories</div>
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">Stories From The Field</h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            Not just statistics — stories. Real outcomes from real communities moving forward.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          {[
+            {
+              category: "Small Business Growth",
+              before: "A minority-owned manufacturer with limited access to procurement channels, constrained capital, and no formal growth strategy.",
+              after: "After participating in the Vision 8:28 accelerator program, secured two government contracts and tripled workforce in 18 months.",
+              metric: "3x",
+              metricLabel: "Workforce Growth",
+              quote: "They didn't just give us a workshop — they gave us a roadmap.",
+              attribution: "Entrepreneur & Accelerator Graduate"
+            },
+            {
+              category: "Regional Collaboration",
+              before: "Three adjacent counties operating competing economic development strategies — duplicating effort and fragmenting regional impact.",
+              after: "Vision 8:28-facilitated strategy alignment produced a unified regional brand, shared data infrastructure, and joint federal grant application.",
+              metric: "$2.4M",
+              metricLabel: "Joint Grant Secured",
+              quote: "We had been trying to get aligned for three years. One forum changed everything.",
+              attribution: "County Economic Development Director"
+            },
+            {
+              category: "Workforce Placement",
+              before: "A regional workforce development board with high training completion rates but low employment outcomes due to employer-pipeline misalignment.",
+              after: "After adopting the Vision 8:28 industry cluster alignment model, 90-day employment placement improved by 34% within one program cycle.",
+              metric: "+34%",
+              metricLabel: "Placement Rate Gain",
+              quote: "The framework gave us the language and structure to have real conversations with employers.",
+              attribution: "Workforce Development Board Director"
+            }
+          ].map(story => (
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col">
+              <div class="bg-slate-900 text-white px-8 pt-8 pb-6">
+                <div class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest mb-3">{story.category}</div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-4xl font-bold text-[#24a4b9]">{story.metric}</span>
+                  <span class="text-slate-400 text-sm">{story.metricLabel}</span>
+                </div>
+              </div>
+              <div class="p-8 flex flex-col flex-1">
+                <div class="space-y-4 mb-6 flex-1">
+                  <div>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Before</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">{story.before}</p>
+                  </div>
+                  <div class="border-t border-slate-100 pt-4">
+                    <div class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2">After</div>
+                    <p class="text-slate-700 text-sm leading-relaxed font-medium">{story.after}</p>
+                  </div>
+                </div>
+                <blockquote class="border-l-2 border-[#24a4b9] pl-4 mt-2">
+                  <p class="text-slate-600 text-sm italic mb-2">"{story.quote}"</p>
+                  <footer class="text-slate-500 text-xs font-medium">— {story.attribution}</footer>
+                </blockquote>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/contact" class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg">
+            Read All Impact Stories
+          </a>
+          <a href="/contact" class="inline-block border-2 border-slate-300 text-slate-700 px-10 py-4 rounded-lg font-semibold text-lg hover:border-slate-400 transition-colors duration-200">
+            Share Your Story
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH & REPORTS -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">Research & Reports</div>
+            <h2 class="text-4xl font-bold text-slate-900 mb-6">Data That Drives Decisions</h2>
+            <p class="text-lg text-slate-600 leading-relaxed mb-10">
+              When Vision 8:28 releases reports, briefs, or white papers, they live here first — with executive summaries, downloadable assets, and media-ready excerpts.
+            </p>
+            <div class="space-y-4">
+              {[
+                { label: "Annual Economic Outlook Reports", desc: "Comprehensive regional data across workforce, capital, and small business health." },
+                { label: "Policy Briefs", desc: "Targeted analysis on priority legislative and regulatory developments." },
+                { label: "Regional Competitiveness Studies", desc: "Market-by-market benchmarking across key economic development indicators." },
+                { label: "Small Business Climate Reports", desc: "Access to capital, procurement readiness, and ecosystem health assessments." },
+                { label: "Workforce Alignment Studies", desc: "Industry cluster demand vs. talent supply analysis with policy recommendations." }
+              ].map(item => (
+                <div class="flex items-start gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl">
+                  <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">{item.label}</h3>
+                    <p class="text-slate-500 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="space-y-5">
+            <div class="bg-slate-900 text-white rounded-2xl p-8">
+              <div class="flex items-start justify-between mb-6">
+                <div>
+                  <div class="text-[#24a4b9] text-xs font-bold uppercase tracking-widest mb-2">Latest Release</div>
+                  <h3 class="text-xl font-bold leading-snug">2025 Annual Economic Outlook Report</h3>
+                </div>
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded-full whitespace-nowrap ml-4">New</span>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">Covering 14 regional markets with workforce trend data, capital access analysis, small business ecosystem health indicators, and forward-looking policy recommendations.</p>
+              <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="text-center">
+                  <div class="text-xl font-bold text-[#24a4b9]">14</div>
+                  <div class="text-slate-400 text-xs mt-1">Markets</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-xl font-bold text-[#24a4b9]">87</div>
+                  <div class="text-slate-400 text-xs mt-1">Pages</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-xl font-bold text-[#24a4b9]">32</div>
+                  <div class="text-slate-400 text-xs mt-1">Key Findings</div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1d8a9d] transition-colors duration-200">
+                  Download Latest Report
+                </a>
+                <a href="/contact" class="block text-center bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/20 transition-colors duration-200">
+                  Subscribe For Research Updates
+                </a>
+              </div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+              <h4 class="font-bold text-slate-900 text-sm uppercase tracking-widest mb-4">Recent Releases</h4>
+              <div class="space-y-3">
+                {[
+                  { title: "Small Business Climate Report — Q4 2025", date: "Oct 2025" },
+                  { title: "Workforce Alignment Study: Southeast Region", date: "Aug 2025" },
+                  { title: "Regional Competitiveness Index 2025", date: "Jun 2025" }
+                ].map(r => (
+                  <div class="flex items-center justify-between py-3 border-b border-slate-200 last:border-0">
+                    <p class="text-slate-700 text-sm font-medium">{r.title}</p>
+                    <span class="text-slate-400 text-xs ml-4 whitespace-nowrap">{r.date}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA COVERAGE -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-3">Earned Media</div>
+            <h2 class="text-4xl font-bold text-slate-900">In The Media</h2>
+          </div>
+          <div class="flex gap-4">
+            <a href="/contact" class="inline-block bg-[#24a4b9] text-white px-7 py-3 rounded-lg font-semibold hover:bg-[#1d8a9d] transition-colors duration-200 text-sm">
+              View All Coverage
+            </a>
+            <a href="/contact" class="inline-block border border-slate-300 text-slate-700 px-7 py-3 rounded-lg font-semibold hover:border-slate-400 transition-colors duration-200 text-sm">
+              Request An Interview
+            </a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              outlet: "Economic Development Quarterly",
+              type: "Feature Article",
+              typeIcon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+              headline: "Vision 8:28's Regional Framework Is Redefining How EDCs Collaborate",
+              summary: "A deep-dive profile on Vision 8:28's approach to multi-sector economic development strategy.",
+              date: "Jan 2026"
+            },
+            {
+              outlet: "The Urban Growth Podcast",
+              type: "Podcast Feature",
+              typeIcon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
+              headline: "Building Regions That Work: A Conversation on PPPs and Inclusive Growth",
+              summary: "45-minute interview covering public-private partnership structuring and regional competitiveness strategy.",
+              date: "Dec 2025"
+            },
+            {
+              outlet: "Community Development Finance",
+              type: "Industry Publication",
+              typeIcon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+              headline: "Capital Access for Underserved Entrepreneurs: The Vision 8:28 Model",
+              summary: "Published analysis of Vision 8:28's capital alignment framework for small business ecosystem development.",
+              date: "Nov 2025"
+            },
+            {
+              outlet: "Regional Business Journal",
+              type: "News Article",
+              typeIcon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6m-6-4h6",
+              headline: "New Initiative Aims to Align Three-State Workforce and Capital Strategy",
+              summary: "Breaking news coverage of the Regional Economic Competitiveness Initiative announcement.",
+              date: "Feb 2026"
+            },
+            {
+              outlet: "National EDC Leadership Summit",
+              type: "Keynote Address",
+              typeIcon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
+              headline: "Keynote: Reframing Economic Development for the Next Decade",
+              summary: "Full keynote address delivered at the National EDC Leadership Summit — available for media use.",
+              date: "Oct 2025"
+            },
+            {
+              outlet: "State Business Network TV",
+              type: "Broadcast Segment",
+              typeIcon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
+              headline: "Segment: How Vision 8:28 Is Building the Infrastructure for Economic Transformation",
+              summary: "6-minute broadcast feature aired on the State Business Network's regional economic development series.",
+              date: "Sep 2025"
+            }
+          ].map(item => (
+            <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg transition-all duration-200 flex flex-col group">
+              <div class="flex items-start justify-between mb-5">
+                <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.typeIcon}></path>
+                  </svg>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-bold text-[#24a4b9] block">{item.type}</span>
+                  <span class="text-slate-400 text-xs">{item.date}</span>
+                </div>
+              </div>
+              <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">{item.outlet}</p>
+              <h3 class="font-bold text-slate-900 text-sm leading-snug mb-3 group-hover:text-[#24a4b9] transition-colors duration-150 flex-1">{item.headline}</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-5">{item.summary}</p>
+              <a href="/contact" class="text-[#24a4b9] font-semibold text-sm hover:underline">View Full Feature →</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section id="subscribe" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-900 text-white rounded-2xl overflow-hidden">
+          <div class="grid lg:grid-cols-2">
+            <div class="p-12 lg:p-16">
+              <div class="text-[#24a4b9] text-sm font-bold uppercase tracking-widest mb-4">Stay Informed</div>
+              <h2 class="text-4xl font-bold mb-6">
+                Stay Ahead Of The Curve
+              </h2>
+              <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                Join leaders across sectors receiving curated insights, announcements, and policy updates from Vision 8:28.
+              </p>
+              <ul class="space-y-4 mb-10">
+                {[
+                  "Monthly Executive Brief",
+                  "Early Access To Reports",
+                  "Event Invitations",
+                  "Advocacy Alerts",
+                  "Partnership Announcements"
+                ].map(item => (
+                  <li class="flex items-center gap-3">
+                    <div class="w-5 h-5 rounded-full bg-[#24a4b9] flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-slate-300 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bg-slate-800 p-12 lg:p-16 flex flex-col justify-center">
+              <h3 class="text-xl font-bold mb-6">Subscribe To Vision 8:28 News</h3>
+              <form class="space-y-4" onsubmit="return false;">
+                <div>
+                  <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-name">Full Name</label>
+                  <input
+                    id="sub-name"
+                    type="text"
+                    placeholder="Your full name"
+                    class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-email">Email Address</label>
+                  <input
+                    id="sub-email"
+                    type="email"
+                    placeholder="your@organization.org"
+                    class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label class="block text-slate-400 text-sm font-medium mb-2" for="sub-org">Organization</label>
+                  <input
+                    id="sub-org"
+                    type="text"
+                    placeholder="Your organization"
+                    class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#24a4b9] focus:border-transparent text-sm"
+                  />
+                </div>
+                <div class="pt-2 space-y-3">
+                  <a href="/contact" class="block text-center bg-[#24a4b9] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#1d8a9d] transition-colors duration-200">
+                    Subscribe To Vision 8:28 News
+                  </a>
+                  <a href="/contact" class="block text-center bg-white/10 border border-white/20 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-white/20 transition-colors duration-200">
+                    Customize Your Updates
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRATEGIC FOOTER CTA -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          Transparency Builds Trust.<br />Momentum Builds Movement.
+        </h2>
+        <p class="text-[#24a4b9] text-xl font-semibold mb-3">
+          Stay informed. Stay engaged. Stay aligned.
+        </p>
+        <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          Vision 8:28 is committed to open communication, measurable reporting, and strategic thought leadership.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#subscribe"
+            class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+          >
+            Subscribe Today
+          </a>
+          <a
+            href="/contact"
+            class="inline-block bg-white/10 border border-white/20 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
+          >
+            Contact Our Communications Team
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <NewsLatest client:load />
+
+    <StickyCTA
+      title="Vision 8:28 Newsroom"
+      description="Subscribe for monthly executive briefs, early report access, and event invitations."
+      ctaText="Subscribe To Updates"
+      ctaHref="#subscribe"
+    />
+
+  </div>
+</BaseLayout>

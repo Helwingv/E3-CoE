@@ -1,0 +1,88 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import Card from "../../components/Card.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+---
+
+<PageLayout title="Board & Team" intro="Meet the leaders driving our mission.">
+  <section class="mx-auto max-w-7xl px-4 py-12 space-y-16">
+
+    <!-- Officers -->
+    <section>
+      <SectionHeading>Officers</SectionHeading>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Card padding="md">
+          <h3 class="font-semibold">William Booker, Jr.</h3>
+          <p class="text-sm text-gray-600 mt-1">President</p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Shelbia Carter-Wiley</h3>
+          <p class="text-sm text-gray-600 mt-1">Vice-President</p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Dr. Cheryl McKinley</h3>
+          <p class="text-sm text-gray-600 mt-1">Treasurer</p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Elizabeth Vereen</h3>
+          <p class="text-sm text-gray-600 mt-1">Secretary</p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Antoine Smith</h3>
+          <p class="text-sm text-gray-600 mt-1">Executive Director</p>
+        </Card>
+      </div>
+
+      <p class="mt-4 text-sm text-gray-500 italic">Photos coming soon.</p>
+    </section>
+
+    <!-- Board Committee Chairpersons -->
+    <section>
+      <SectionHeading>Board – Committee Chairpersons</SectionHeading>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <Card padding="md">
+          <h3 class="font-semibold">Dr. Cheryl D. McKinley</h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Finance &amp; Audit Committee — Chair
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Karen Mason</h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Public Relations &amp; Fundraising Committee — Chair
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Melissa Moses</h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Partnerships &amp; Community Impact Committee — Chair
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Daniel Gore</h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Strategic Planning &amp; Economic Development Committee — Chair
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Cherie Shepherd</h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Brand Ambassador &amp; National Spokesperson — Chair
+          </p>
+        </Card>
+
+      </div>
+    </section>
+
+  </section>
+</PageLayout>

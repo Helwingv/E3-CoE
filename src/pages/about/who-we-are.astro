@@ -1,0 +1,203 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import Card from "../../components/Card.astro";
+import { site } from "../../config/site";
+---
+
+<PageLayout title="Who We Are" intro={site.tagline}>
+  <section class="mx-auto max-w-7xl px-4 py-12 space-y-16">
+
+    <!-- Hero -->
+    <section class="grid gap-8 lg:grid-cols-12 items-center">
+      <div class="lg:col-span-7">
+        <p class="text-sm font-semibold tracking-wide text-gray-500 uppercase">
+          Who We Are at Vision 8:28
+        </p>
+
+        <h1 class="mt-3 text-3xl md:text-5xl font-extrabold leading-tight">
+          A National Authority Advancing Economic Growth That Lasts
+        </h1>
+
+        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+          Vision 8:28 is a Certified Economic Development Corporation built around the E³ CoE Model
+          to align strategy, capital, and execution—delivering measurable, inclusive, and sustainable
+          economic outcomes for communities nationwide.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href="/"
+            class="inline-flex items-center justify-center rounded-md bg-[#24a4b9] px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
+          >
+            Explore Our Mission →
+          </a>
+
+          <a
+            href="/membership/join"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-charcoal hover:shadow-md transition"
+          >
+            Join the Movement
+          </a>
+        </div>
+
+        <p class="mt-3 text-xs text-gray-500">
+          Hero image/video suggestions: diverse skyline montage (urban + rural), leaders collaborating
+          around dashboards, infrastructure/workforce/small business layered imagery, subtle motion
+          video of economic activity.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5">
+        <Card padding="sm">
+          <div class="aspect-[16/10] rounded-md bg-gray-100 flex items-center justify-center text-sm text-gray-500">
+            Hero image / video placeholder
+          </div>
+          <p class="mt-3 text-sm text-gray-600">
+            Replace with your selected montage or motion video when ready.
+          </p>
+        </Card>
+      </div>
+    </section>
+
+    <!-- The “Why” -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">The “Why” of Vision 8:28</h2>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <Card padding="md">
+          <p class="text-gray-700 leading-relaxed">
+            Communities in Horry County and the Grand Strand Region are under pressure to grow—yet too often
+            lack the strategy, coordination, and execution capacity to turn funding and policy into real outcomes.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <p class="text-gray-700 leading-relaxed">
+            Economic development for marginalized, underserved, and underrepresented communities has become complex,
+            fragmented, and is not results-driven. Capital without clarity fails. Programs without accountability stall.
+            Vision without execution fades.
+          </p>
+          <p class="mt-4 text-sm text-gray-600 italic">
+            We exist to change that; thus, our tagline is “Serving With Purpose.”
+          </p>
+        </Card>
+      </div>
+    </section>
+
+    <!-- Differentiated Value Proposition -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">
+        The Vision 8:28 Community-Driven Differentiated Value Proposition
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card padding="md">
+          <h3 class="font-semibold">Certified governance &amp; compliance</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Meets federal and philanthropic standards.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Growth Intelligence frameworks</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Turn data into decisions that leaders can act on.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Integrated economic development model</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Education, workforce development (UpSkilling &amp; ReSkilling), entrepreneurship, and regional competitiveness.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Execution-first leadership</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Focused on outcomes—not optics.
+          </p>
+        </Card>
+
+        <Card padding="md" class="lg:col-span-2">
+          <h3 class="font-semibold">Our results</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Communities that move faster, partners that trust deeper, and investments that deliver.
+          </p>
+        </Card>
+      </div>
+    </section>
+
+    <!-- Validation / Trust Signals -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">
+        Validation of the Vision 8:28 Business Case
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card padding="md">
+          <h3 class="font-semibold">Federally compliant governance</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Policies aligned for accountability and audit readiness.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Board-led fiduciary oversight</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Oversight designed to strengthen trust and stewardship.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Forecasting &amp; audit readiness</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Multi-year financial forecasting and audit preparedness.
+          </p>
+        </Card>
+
+        <Card padding="md" class="lg:col-span-2">
+          <h3 class="font-semibold">Funding alignment by design</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Built for federal, state, and philanthropic funding alignment.
+          </p>
+        </Card>
+
+        <Card padding="md">
+          <h3 class="font-semibold">Trust badges (visuals)</h3>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>• “Federally Compliant”</li>
+            <li>• “Certified Economic Development Corporation”</li>
+            <li>• Governance | Transparency | Accountability icons</li>
+          </ul>
+        </Card>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <Card padding="lg">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-bold">Ready to build outcomes that last?</h2>
+            <p class="text-gray-700 mt-2 max-w-2xl">
+              Learn how Vision 8:28 is redefining economic development through strategy, capital alignment,
+              and execution-focused leadership.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+              (You’ll provide the HubSpot link — this button is ready to be updated.)
+            </p>
+          </div>
+
+          <a
+            href="#"
+            class="inline-flex items-center justify-center rounded-md bg-[#24a4b9] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
+          >
+            Learn How We’re Redefining Economic Development →
+          </a>
+        </div>
+      </Card>
+    </section>
+
+  </section>
+</PageLayout>

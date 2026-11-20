@@ -1,0 +1,40 @@
+---
+/**
+ * Card.astro (Astro-safe)
+ * Defaults match PostList styling:
+ * border + rounded + bg-white + hover shadow + transition.
+ *
+ * Props:
+ * - class: extra Tailwind classes
+ * - padding: "sm" | "md" | "lg" (default "md")
+ * - hover: boolean (default true)
+ * - href: optional string; if provided, card renders as <a>
+ */
+const {
+  class: className = "",
+  padding = "md",
+  hover = true,
+  href,
+} = Astro.props;
+
+const paddingClass =
+  padding === "sm"
+    ? "p-4"
+    : padding === "lg"
+      ? "p-8"
+      : "p-6";
+
+const base = "border rounded-lg bg-white transition";
+const hoverClass = hover ? "hover:shadow-md" : "";
+const classes = [base, paddingClass, hoverClass, className].filter(Boolean).join(" ");
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <div class={classes}>
+    <slot />
+  </div>
+)}

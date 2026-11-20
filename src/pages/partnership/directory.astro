@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Directory from "../../components/react/Directory";
+import StickyCTA from "../../components/StickyCTA.astro";
+import { getCollection } from "astro:content";
+
+const partners = await getCollection("partners");
+const data = partners.map(p => ({
+  orgName: p.data.orgName,
+  sector: p.data.sector,
+  county: p.data.county,
+  url: p.data.url
+}));
+---
+
+<BaseLayout
+  title="Partnership Ecosystem | Partnership | Vision 8:28"
+  description="Vision 8:28 brings together a cross-sector alliance committed to community resilience and regional growth."
+>
+  <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-32 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMSAyLjY5LTYgNi02czYgMi42OSA2IDYtMi42OSA2LTYgNi02LTIuNjktNi02ek0yMCA0NmMtMy4zMSAwLTYtMi42OS02LTZzMi42OS02IDYtNiA2IDIuNjkgNiA2LTIuNjkgNi02IDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl">
+          <div class="mb-8">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Our Partnership Ecosystem
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+              Vision 8:28 brings together a cross-sector alliance committed to community resilience and regional growth.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#directory"
+              class="inline-block bg-[#24a4b9] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+            >
+              Explore The Full Directory
+            </a>
+            <a
+              href="/partnership/join"
+              class="inline-block bg-white/10 border border-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors duration-200"
+            >
+              Apply To Be Listed
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold text-slate-900 mb-6 text-center">
+            A Cross-Sector Alliance
+          </h2>
+          <p class="text-xl text-slate-600 leading-relaxed text-center mb-12">
+            Each partner plays a vital role in strengthening our shared ecosystem. Together, we accelerate economic opportunity across the region.
+          </p>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              "Economic Development Corporations",
+              "Small & Mid-Sized Businesses",
+              "Fortune 100 & 500 Corporations",
+              "Higher Education Institutions",
+              "Workforce Boards",
+              "Public Agencies",
+              "Philanthropic Foundations",
+              "Community-Based Organizations"
+            ].map(type => (
+              <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">
+                <div class="w-2 h-2 rounded-full bg-[#24a4b9] flex-shrink-0"></div>
+                <span class="text-slate-700 font-medium text-sm">{type}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#24a4b9] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2 text-lg">Mission-Aligned</h3>
+            <p class="text-slate-600 text-sm">Every partner is vetted to ensure shared commitment to community and economic transformation.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#24a4b9] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2 text-lg">Cross-Regional</h3>
+            <p class="text-slate-600 text-sm">Partners span counties, municipalities, and sectors — building connectivity across the full region.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#24a4b9] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24a4b9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2 text-lg">Impact-Driven</h3>
+            <p class="text-slate-600 text-sm">Partnerships are structured around measurable economic outcomes, not just shared presence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="directory" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">
+            Browse Our Partnership Network
+          </h2>
+          <p class="text-lg text-slate-600">
+            Filter by sector and region to find the right partners for your initiative
+          </p>
+        </div>
+        <Directory client:load data={data} />
+      </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-3xl font-bold mb-4">
+          Want to Be Part of the Ecosystem?
+        </h3>
+        <p class="text-slate-300 text-lg mb-8">
+          Apply to be listed in our Partnership Directory and connect with leaders driving regional economic growth.
+        </p>
+        <a
+          href="/partnership/join"
+          class="inline-block bg-[#24a4b9] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#1d8a9d] transition-colors duration-200 shadow-lg"
+        >
+          Apply To Be Listed
+        </a>
+      </div>
+    </section>
+
+    <StickyCTA
+      title="Partner With Vision 8:28"
+      description="Join a cross-sector alliance committed to community resilience and regional growth."
+      ctaText="Become a Partner"
+      ctaHref="/partnership/join"
+    />
+  </div>
+</BaseLayout>

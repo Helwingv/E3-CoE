@@ -1,0 +1,433 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Donate — Vision 8:28" description="Invest in the future of economic mobility. Support Vision 8:28's mission to advance workforce innovation, entrepreneurial ecosystems, and policy leadership.">
+
+  <!-- HERO -->
+  <section class="relative bg-deep-navy text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-deep-navy via-[#0d3a52] to-[#1E7A9A]/40 z-0"></div>
+    <div class="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-36 flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 text-center md:text-left">
+        <p class="text-sm font-semibold tracking-widest uppercase text-community-orange mb-4">Invest In The Future</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Invest In The Future Of Economic Mobility.
+        </h1>
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-4 max-w-2xl">
+          Your support fuels measurable community transformation — advancing workforce innovation, entrepreneurial ecosystems, regional competitiveness, and policy leadership.
+        </p>
+        <p class="text-base text-white/70 italic mb-8 max-w-xl">
+          Vision 8:28 does not ask for or solicit donations.<br />
+          We invite investment in sustainable impact.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="https://donate.stripe.com/eVq8wOasa5OlebQ65RaVa01" target="_blank" rel="noopener noreferrer" class="inline-block bg-community-orange hover:bg-[#d98b20] text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 text-center">
+            Make A Gift Today
+          </a>
+          <a href="#impact" class="inline-block border-2 border-white/60 hover:border-white text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-center">
+            Explore Impact Opportunities
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 w-full max-w-lg hidden md:block">
+        <img
+          src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Entrepreneur standing in front of newly opened storefront"
+          class="rounded-2xl shadow-2xl object-cover w-full h-80 md:h-[420px]"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY GIVE -->
+  <section class="bg-soft-cream py-20 px-6">
+    <div class="mx-auto max-w-5xl">
+      <p class="text-sm font-semibold tracking-widest uppercase text-brand mb-3 text-center">Why Give</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-deep-navy text-center mb-4">
+        Because Growth Should Be Accessible To Everyone.
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+        Communities thrive when capital, strategy, and leadership align.
+      </p>
+      <p class="text-center text-gray-700 mb-6">Your contribution helps Vision 8:28:</p>
+      <ul class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
+        {[
+          "Expand workforce development pipelines",
+          "Accelerate small business growth",
+          "Influence smart economic policy",
+          "Deliver high-impact regional projects",
+          "Provide training and certification for practitioners",
+        ].map((item) => (
+          <li class="flex items-start gap-3 bg-white rounded-lg px-5 py-4 shadow-sm border border-gray-100">
+            <span class="mt-1 w-2 h-2 rounded-full bg-growth-green flex-shrink-0"></span>
+            <span class="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-center text-gray-600 italic">
+        Your investment directly strengthens ecosystems — not just programs.
+      </p>
+    </div>
+  </section>
+
+  <!-- IMPACT SNAPSHOT -->
+  <section id="impact" class="bg-deep-navy text-white py-20 px-6">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-sm font-semibold tracking-widest uppercase text-community-orange mb-3 text-center">Impact Snapshot</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Annual Impact Metrics</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+        {[
+          { stat: "5", label: "Regions Served" },
+          { stat: "35", label: "Small Businesses Supported" },
+          { stat: "1,097", label: "Workforce Participants Engaged" },
+          { stat: "$8M", label: "Capital Leveraged Forecasted For 2026" },
+          { stat: "19", label: "Policy Initiatives Advanced" },
+        ].map((item) => (
+          <div class="bg-white/10 rounded-xl p-6 text-center border border-white/10 hover:bg-white/15 transition-colors duration-200">
+            <div class="text-3xl md:text-4xl font-bold text-community-orange mb-2">{item.stat}</div>
+            <div class="text-sm text-white/70 leading-snug">{item.label}</div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="#" class="inline-block border-2 border-community-orange text-community-orange hover:bg-community-orange hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200">
+          View Annual Impact Report
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAYS TO GIVE -->
+  <section id="ways-to-give" class="bg-white py-20 px-6">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-sm font-semibold tracking-widest uppercase text-brand mb-3 text-center">Ways To Give</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-deep-navy text-center mb-14">
+        Flexible Pathways To Create Impact
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- 1. General Fund -->
+        <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-lg">1</div>
+            <h3 class="text-xl font-bold text-deep-navy">General Fund Contribution</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Supports Vision 8:28's highest-priority initiatives and operational sustainability.
+          </p>
+          <p class="text-sm font-semibold text-gray-500 mb-2">Best For:</p>
+          <p class="text-sm text-gray-600 mb-6">Individuals and organizations seeking broad impact.</p>
+          <a href="https://donate.stripe.com/eVq8wOasa5OlebQ65RaVa01" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand hover:bg-[#196585] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+            Donate To General Fund
+          </a>
+          <div class="mt-4 flex justify-center">
+            <img src="/images/Vision828_GeneralDonationsQRCode.png" alt="Scan to donate to Vision 8:28 General Fund" class="w-28 h-28 rounded-lg border border-gray-200" />
+          </div>
+        </div>
+
+        <!-- 2. Program-Specific -->
+        <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-growth-green/10 flex items-center justify-center text-growth-green font-bold text-lg">2</div>
+            <h3 class="text-xl font-bold text-deep-navy">Program-Specific Giving</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Direct your support toward:</p>
+          <ul class="space-y-2 mb-6">
+            {[
+              "Workforce Innovation",
+              "Small Business Acceleration",
+              "Policy & Advocacy",
+              "Training & Certification",
+              "Regional Revitalization Projects",
+            ].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-growth-green flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="#program-giving" class="inline-block bg-growth-green hover:bg-[#2e8c59] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+            Choose A Program To Support
+          </a>
+        </div>
+
+        <!-- 3. Corporate Sponsorship -->
+        <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-community-orange/10 flex items-center justify-center text-community-orange font-bold text-lg">3</div>
+            <h3 class="text-xl font-bold text-deep-navy">Corporate & Institutional Sponsorship</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Align your organization with measurable economic transformation.
+          </p>
+          <p class="text-sm font-semibold text-gray-500 mb-2">Benefits May Include:</p>
+          <ul class="space-y-2 mb-6">
+            {[
+              "Brand visibility",
+              "Thought leadership recognition",
+              "Event sponsorship",
+              "Advisory participation",
+              "Impact reporting",
+            ].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-community-orange flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="#" class="inline-block bg-community-orange hover:bg-[#d98b20] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+            Explore Corporate Sponsorship
+          </a>
+        </div>
+
+        <!-- 4. Major Gifts -->
+        <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-deep-navy/10 flex items-center justify-center text-deep-navy font-bold text-lg">4</div>
+            <h3 class="text-xl font-bold text-deep-navy">Major & Transformational Gifts</h3>
+          </div>
+          <p class="text-gray-600 mb-4">For visionary leaders seeking legacy-level impact.</p>
+          <p class="text-sm font-semibold text-gray-500 mb-2">Options:</p>
+          <ul class="space-y-2 mb-6">
+            {[
+              "Named initiatives",
+              "Endowed programs",
+              "Multi-year funding commitments",
+              "Capital campaign participation",
+            ].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-deep-navy flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="#" class="inline-block bg-deep-navy hover:bg-[#0a2233] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+            Speak With Our Development Team
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM-SPECIFIC GIVING: FOOD PROGRAM -->
+  <section id="program-giving" class="bg-soft-cream py-20 px-6">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-sm font-semibold tracking-widest uppercase text-growth-green mb-3 text-center">Program-Specific Giving</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-deep-navy text-center mb-14">
+        Support A Specific Initiative
+      </h2>
+
+      <div class="max-w-2xl mx-auto border border-gray-200 rounded-2xl bg-white p-8 hover:shadow-lg transition-shadow duration-200">
+        <div class="flex flex-col sm:flex-row items-start gap-6">
+          <img
+            src="/images/Facebook_Story.png"
+            alt="When Did I See You An Hungred Food Program"
+            class="w-full sm:w-40 h-48 sm:h-52 object-cover rounded-xl flex-shrink-0"
+          />
+          <div class="flex-1">
+            <span class="inline-block text-xs font-semibold uppercase tracking-wide text-white bg-growth-green px-3 py-1 rounded-full mb-3">Launching June 24, 2026</span>
+            <h3 class="text-xl font-bold text-deep-navy mb-2">"When Did I See You An Hungred..." Food Program</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              A partnership between Vision 8:28 and The Outreach Farm providing meals to families across the Grand Strand. Every meal delivered is relief, dignity, hope, and stability.
+            </p>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <a href="https://donate.stripe.com/28E14m9o6ccJ7Ns8dZaVa00" target="_blank" rel="noopener noreferrer" class="inline-block bg-growth-green hover:bg-[#2e8c59] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+                Donate To Food Program
+              </a>
+              <a href="/programs/food-program" class="text-sm font-semibold text-brand hover:text-[#196585] underline underline-offset-2">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCY & ACCOUNTABILITY -->
+  <section class="bg-soft-cream py-20 px-6">
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-brand mb-3">Transparency & Accountability</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-deep-navy mb-4">
+        Measurable Impact. Responsible Stewardship.
+      </h2>
+      <p class="text-gray-600 mb-10">Vision 8:28 is committed to:</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10">
+        {[
+          "Transparent financial reporting",
+          "Clear impact measurement",
+          "Strategic allocation of funds",
+          "Quarterly performance tracking",
+          "Annual public reporting",
+        ].map((item) => (
+          <div class="bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 text-gray-700 text-sm font-medium flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-brand flex-shrink-0"></span>
+            {item}
+          </div>
+        ))}
+      </div>
+      <p class="text-gray-600 italic mb-8">Every dollar is aligned to outcomes.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="inline-block bg-brand hover:bg-[#196585] text-white font-semibold px-7 py-3 rounded-lg transition-colors duration-200">
+          Review Financial Overview
+        </a>
+        <a href="#" class="inline-block border-2 border-brand text-brand hover:bg-brand hover:text-white font-semibold px-7 py-3 rounded-lg transition-colors duration-200">
+          Download Annual Report
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONOR RECOGNITION -->
+  <section class="bg-deep-navy text-white py-20 px-6">
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-community-orange mb-3">Donor Recognition</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Honoring Those Who Build The Future</h2>
+      <p class="text-white/70 mb-8">Vision 8:28 recognizes supporters through:</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
+        {[
+          "Annual Impact Report acknowledgment",
+          "Event recognition",
+          "Exclusive donor briefings",
+          "Invitation-only leadership events",
+          "Naming opportunities for major gifts",
+        ].map((item) => (
+          <div class="bg-white/10 rounded-xl px-5 py-4 border border-white/10 text-white/80 text-sm flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-community-orange flex-shrink-0"></span>
+            {item}
+          </div>
+        ))}
+      </div>
+      <p class="text-white/60 italic mb-8">Giving is more than generosity — it is leadership.</p>
+      <a href="#" class="inline-block bg-community-orange hover:bg-[#d98b20] text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200">
+        Become A Founding Supporter
+      </a>
+    </div>
+  </section>
+
+  <!-- RECURRING GIVING -->
+  <section class="bg-white py-20 px-6">
+    <div class="mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1">
+        <p class="text-sm font-semibold tracking-widest uppercase text-brand mb-3">Recurring Giving</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-deep-navy mb-4">
+          Sustained Impact Starts With Sustained Support
+        </h2>
+        <p class="text-gray-600 mb-6">Monthly giving ensures:</p>
+        <ul class="space-y-3 mb-6">
+          {[
+            "Consistent program funding",
+            "Scalable workforce initiatives",
+            "Ongoing research & advocacy",
+            "Long-term regional projects",
+          ].map((item) => (
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="w-2 h-2 rounded-full bg-growth-green flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p class="text-gray-500 italic mb-8">
+          Even modest recurring gifts create exponential impact.
+        </p>
+        <a href="#" class="inline-block bg-growth-green hover:bg-[#2e8c59] text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200">
+          Become A Monthly Investor
+        </a>
+      </div>
+      <div class="flex-1 w-full max-w-md hidden md:block">
+        <img
+          src="https://images.pexels.com/photos/6476258/pexels-photo-6476258.jpeg?auto=compress&cs=tinysrgb&w=700"
+          alt="Community members collaborating on long-term planning"
+          class="rounded-2xl shadow-xl object-cover w-full h-80"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANNED GIVING -->
+  <section class="bg-soft-cream py-20 px-6">
+    <div class="mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1">
+        <p class="text-sm font-semibold tracking-widest uppercase text-brand mb-3">Planned Giving</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-deep-navy mb-4">
+          Leave A Legacy Of Opportunity
+        </h2>
+        <p class="text-gray-600 mb-6">
+          Vision 8:28 offers planned giving opportunities for individuals who wish to:
+        </p>
+        <ul class="space-y-3 mb-8">
+          {[
+            "Include Vision 8:28 in estate planning",
+            "Establish endowed funds",
+            "Create generational impact",
+          ].map((item) => (
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="w-2 h-2 rounded-full bg-warm-gold flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="#" class="inline-block bg-deep-navy hover:bg-[#0a2233] text-white font-semibold px-7 py-3 rounded-lg transition-colors duration-200">
+          Learn About Legacy Giving
+        </a>
+      </div>
+      <div class="flex-1 w-full max-w-md hidden md:block">
+        <img
+          src="https://images.pexels.com/photos/7063764/pexels-photo-7063764.jpeg?auto=compress&cs=tinysrgb&w=700"
+          alt="Executive leadership reviewing legacy giving portfolio"
+          class="rounded-2xl shadow-xl object-cover w-full h-80"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY & TRUST -->
+  <section class="bg-white py-16 px-6 border-y border-gray-100">
+    <div class="mx-auto max-w-5xl text-center">
+      <h2 class="text-2xl font-bold text-deep-navy mb-8">Secure, Trustworthy Giving</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+        {[
+          { icon: "🔒", title: "Secure Processing", desc: "All transactions encrypted via SSL/TLS" },
+          { icon: "📋", title: "501(c)(3) Status", desc: "Registered nonprofit organization" },
+          { icon: "💼", title: "Tax-Deductible", desc: "Contributions may be tax-deductible as permitted by law" },
+          { icon: "🛡️", title: "Privacy Assured", desc: "Your information is never sold or shared" },
+        ].map((item) => (
+          <div class="bg-soft-cream rounded-xl p-6 border border-gray-100">
+            <div class="text-3xl mb-3">{item.icon}</div>
+            <h3 class="font-bold text-deep-navy mb-1 text-sm">{item.title}</h3>
+            <p class="text-xs text-gray-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <a href="https://donate.stripe.com/eVq8wOasa5OlebQ65RaVa01" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand hover:bg-[#196585] text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200">
+        Give Securely Now
+      </a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-gradient-to-br from-deep-navy to-[#1E7A9A] text-white py-24 px-6 text-center">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+        The Future Of Economic Development Is Built — Not Assumed.
+      </h2>
+      <p class="text-white/80 text-lg mb-4">
+        When you give to Vision 8:28, you are not funding an organization.
+      </p>
+      <p class="text-white/70 mb-8">You are investing in:</p>
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        {["Opportunity", "Mobility", "Innovation", "Competitiveness", "Community Resilience"].map((item) => (
+          <span class="bg-white/15 border border-white/20 text-white text-sm font-semibold px-5 py-2 rounded-full">
+            {item}
+          </span>
+        ))}
+      </div>
+      <p class="text-white/60 italic mb-8">Now is the moment.</p>
+      <a href="https://donate.stripe.com/eVq8wOasa5OlebQ65RaVa01" target="_blank" rel="noopener noreferrer" class="inline-block bg-community-orange hover:bg-[#d98b20] text-white font-bold px-10 py-5 rounded-xl text-lg transition-colors duration-200 shadow-lg">
+        Make Your Investment Today
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

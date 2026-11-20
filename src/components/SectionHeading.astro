@@ -1,0 +1,21 @@
+---
+/**
+ * SectionHeading.astro
+ * Standard section title for consistent rhythm across pages.
+ *
+ * Props:
+ * - level: 2 | 3 (default 2)
+ * - class: extra Tailwind classes
+ */
+const { level = 2, class: className = "" } = Astro.props;
+
+const Tag = level === 3 ? "h3" : "h2";
+const base = level === 3 ? "text-xl font-bold" : "text-2xl font-bold";
+const classes = [base, "mb-6", className].filter(Boolean).join(" ");
+---
+
+{Tag === "h3" ? (
+  <h3 class={classes}><slot /></h3>
+) : (
+  <h2 class={classes}><slot /></h2>
+)}

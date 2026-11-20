@@ -1,0 +1,61 @@
+---
+import "../styles/tailwind.css";
+import SEO from "../components/SEO.astro";
+import HeaderNav from "../components/react/HeaderNav";
+import ShinyText from "../components/react/ShinyText";
+import { site } from "../config/site";
+import { ViewTransitions } from "astro:transitions";
+
+const { title = site.name, description = site.tagline } = Astro.props;
+---
+<html lang="en" class="scroll-smooth">
+  <head>
+    <SEO title={title} description={description} />
+    <ViewTransitions />
+  </head>
+  <body class="min-h-screen flex flex-col bg-soft-cream text-charcoal">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+      <HeaderNav client:load />
+    </header>
+    <main class="flex-1">
+      <slot />
+    </main>
+    <footer class="border-t mt-16">
+      <div class="mx-auto max-w-7xl px-4 py-12 grid gap-8 md:grid-cols-4">
+        <div class="flex flex-col items-center">
+          <img src="/images/vision828logo1_blackwithtaglinegraphicready.png" alt={site.name} class="h-8 w-auto mb-3" />
+          <ShinyText
+            text="Serving with Purpose"
+            speed={3}
+            delay={1}
+            color="#6b7280"
+            shineColor="#1f2937"
+            spread={120}
+            className="text-sm mt-1 italic"
+            client:load
+          />
+        </div>
+        <nav>
+          <h3 class="font-semibold mb-2">Explore</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/news" class="hover:underline">News</a></li>
+            <li><a href="/events" class="hover:underline">Events</a></li>
+            <li><a href="/resources/partner-directory" class="hover:underline">Directory</a></li>
+            <li><a href="/membership/join" class="hover:underline">Join</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 class="font-semibold mb-2">Contact</h3>
+          <p class="text-sm">{site.address}</p>
+          <p class="text-sm mt-1"><a class="underline" href={`tel:${site.phone}`}>{site.phone}</a></p>
+          <p class="text-sm mt-1"><a class="underline" href={`mailto:${site.email}`}>{site.email}</a></p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Newsletter</h3>
+          <p class="text-sm text-gray-600">Stay connected with our community.</p>
+        </div>
+      </div>
+      <div class="text-center text-xs text-gray-500 py-4">© {new Date().getFullYear()} {site.name}</div>
+    </footer>
+  </body>
+</html>

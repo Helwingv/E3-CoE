@@ -1,0 +1,104 @@
+---
+export const prerender = false;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { createClient } from "@supabase/supabase-js";
+import { marked } from "marked";
+
+const { slug } = Astro.params;
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
+const { data: article } = await supabase
+  .from("news_articles")
+  .select("*")
+  .eq("slug", slug)
+  .eq("is_published", true)
+  .maybeSingle();
+
+if (!article) {
+  return new Response(null, { status: 404 });
+}
+
+const contentHtml = article.content ? await marked.parse(article.content) : "";
+const publishedDate = new Date(article.published_at).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+---
+
+<BaseLayout title={`${article.title} | Vision 8:28`} description={article.excerpt}>
+  <div class="min-h-screen bg-white">
+    <!-- Article Header -->
+    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <a href="/news" class="inline-flex items-center gap-2 text-slate-400 hover:text-[#24a4b9] text-sm font-medium mb-8 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to News
+        </a>
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span class="text-xs font-bold text-[#24a4b9] bg-[#24a4b9]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+            {article.category}
+          </span>
+          {article.author && (
+            <span class="text-slate-400 text-sm">{article.author}</span>
+          )}
+          <span class="text-slate-600">·</span>
+          <span class="text-slate-400 text-sm">{publishedDate}</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">{article.title}</h1>
+        {article.excerpt && (
+          <p class="text-slate-300 text-xl leading-relaxed">{article.excerpt}</p>
+        )}
+      </div>
+    </div>
+
+    <!-- Featured Image -->
+    {article.image_url && (
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
+        <div class="rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src={article.image_url}
+            alt={article.title}
+            class="w-full h-64 md:h-96 object-cover"
+          />
+        </div>
+      </div>
+    )}
+
+    <!-- Article Body -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div
+        class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-[#24a4b9] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 prose-blockquote:border-[#24a4b9] prose-blockquote:text-slate-600"
+        set:html={contentHtml}
+      />
+
+      <!-- Footer -->
+      <div class="mt-16 pt-8 border-t border-slate-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            {article.author && (
+              <p class="text-slate-500 text-sm">Written by <span class="font-semibold text-slate-700">{article.author}</span></p>
+            )}
+            <p class="text-slate-400 text-sm">{publishedDate}</p>
+          </div>
+          <a
+            href="/news"
+            class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-200 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            All News
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
