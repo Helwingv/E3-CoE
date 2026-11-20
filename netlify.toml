@@ -26,3 +26,9 @@
   from = "/programs/food-program"
   to = "/programs/community-impact"
   status = 301
+
+# E3 CoE does not accept donations.
+[[redirects]]
+  from = "/donate"
+  to = "/about/get-involved"
+  status = 301

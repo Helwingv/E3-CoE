@@ -60,6 +60,5 @@ export const nav: NavItem[] = [
     external: true
   },
   { label: "News", href: "/news" },
-  { label: "Donate", href: "/donate" },
   { label: "Contact", href: "/contact" }
 ];

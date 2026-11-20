@@ -36,7 +36,7 @@ export default function HeaderNav() {
               </a>
             )
           )}
-          <a href="/donate" data-astro-prefetch className="ml-2 inline-flex items-center rounded-md bg-e3-700 px-3 py-2 text-sm font-semibold text-white hover:bg-e3-800">Donate</a>
+          <a href="/about/get-involved" data-astro-prefetch className="ml-2 inline-flex items-center rounded-md bg-e3-700 px-3 py-2 text-sm font-semibold text-white hover:bg-e3-800">Get Involved</a>
         </nav>
         <button aria-label="Open menu" className="lg:hidden" onClick={() => setOpen(open ? null : "drawer")}>
           ☰
