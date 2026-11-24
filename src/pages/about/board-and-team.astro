@@ -2,87 +2,114 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import Card from "../../components/Card.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+
+/**
+ * People shown on this page.
+ * Photos: put the file in public/images/team/ (portrait 4:5, 800x1000)
+ * and set `photo` to its path, e.g. "/images/team/antoine-smith.jpg".
+ * Until a photo is set, the card shows the person's initials.
+ */
+const ceoLetterUrl =
+  "https://1954850.fs1.hubspotusercontent-na1.net/hubfs/1954850/SmithGruppe_E3CoELetterFromTheDeskOfTheCEO-PressReleaseVersion.pdf";
+
+const sections = [
+  {
+    heading: "Officer",
+    people: [
+      {
+        name: "Antoine Smith",
+        role: "Chairman & CEO",
+        initials: "AS",
+        photo: undefined as string | undefined,
+        showCeoLetter: true,
+        bio: [
+          "Antoine Smith leads Smith Gruppe. Antoine is integral to the Atlanta, GA, Charlotte, NC, and Piedmont Region business communities.",
+          "He has successfully built and led many successful business models, and coached countless executives and entrepreneurs along the path of professional development and the ability to build a scalable and sustainable business model. Mr. Smith serves his clients and institutions well through his exceptional team building, education, and training abilities. The Smith Gruppe consulting practice focuses on providing trusted corporate-level business advisory and consulting services designed for small to medium-sized businesses, lower middle market corporations, educational institutions, municipalities, and non-profit organizations.",
+          "Antoine is an acclaimed speaker delivering invaluable insights to business and trade associations to educate them on how to increase top-line growth. Smith Gruppe is active in the private capital markets and invests as an equity player in portfolio companies in order to drive economic development in marginalized, underserved, and underrepresented communities that lack access to capital.",
+          "Mr. Smith is a certified Educator/Facilitator and delivers substantive value to community stakeholders, large and small, that focus on Education, Entrepreneurship, and Economic Development.",
+          "Smith Gruppe supports its commitments and engagements by directly investing in community infrastructure by way of standing up IEDCs (Infrastructure Edge Data Centers) to provide capacity and resources to the partners it engages.",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "Educational Advisory Board",
+    people: [
+      {
+        name: "Dr. Cheryl D. McKinley",
+        role: "Chair, E³ CoE Educational Advisory Board",
+        initials: "CM",
+        photo: undefined as string | undefined,
+        showCeoLetter: false,
+        bio: [
+          "Dr. Cheryl McKinley serves as the Chairperson of the E³ Center of Excellence (E³ CoE) Educational Advisory Board, bringing more than two decades of distinguished leadership experience spanning banking, finance, consulting, education, ministry, and community transformation.",
+          "A visionary strategist with a servant’s heart, Dr. McKinley stands at the intersection of fiscal stewardship, educational empowerment, and mission-driven leadership—helping shape the E³ CoE’s commitment to reconceptualizing education as an engine of economic mobility, workforce readiness, and generational impact.",
+          "As a seasoned financial and educational executive, Dr. McKinley has built a reputation for aligning organizational vision with measurable outcomes through transparent governance, disciplined operational leadership, and values-centered execution. Her expertise includes budget development and oversight, board and donor financial reporting, internal controls and audits, compliance management, and long-range cash flow forecasting—critical competencies that strengthen the E³ CoE’s ability to scale sustainable initiatives across Education, Economic Development, and Entrepreneurship ecosystems.",
+          "Dr. McKinley’s academic journey reflects a lifelong commitment to excellence, leadership, and transformational learning. Her multidisciplinary educational background includes advanced studies and degrees in leadership, finance, accounting, educational leadership, human resources, mathematics, and biblical studies. She is currently completing a Doctor of Business Administration (DBA) in Finance at Walden University and holds a Doctorate in Leadership from Apostolos Leadership University. She also earned an MBA in Finance, Accounting, and Business from American InterContinental University and a Master of Education in Educational Leadership from American College of Education.",
+          "Beyond her executive credentials, Dr. McKinley is deeply respected as a community advocate, Overseer, Pastor, Principal, and mentor throughout the United States. Her work has consistently centered on uplifting youth, strengthening families, and empowering underserved communities through education, leadership development, and faith-centered service. Her ability to connect strategic systems thinking with compassion-driven leadership embodies the very essence of the E³ CoE mission.",
+          "Under her leadership, the Educational Advisory Board helps guide the E³ CoE’s national vision to bridge learning with livelihood, align education with real-world workforce demands, and ensure that underserved populations are equipped not only to participate in the future economy—but to lead it.",
+          "Dr. McKinley believes that education is not merely about instruction—it is about activation. Activation of purpose. Activation of opportunity. Activation of human potential.",
+          "And through the E³ CoE Business Model, she continues to help build a future where communities are no longer defined by barriers, but by the brilliance that emerges when people are given the tools, guidance, and infrastructure to thrive.",
+        ],
+      },
+    ],
+  },
+];
 ---
 
 <PageLayout title="Board & Team" intro="Meet the leaders driving our mission.">
-  <section class="mx-auto max-w-7xl px-4 py-12 space-y-16">
+  <section class="space-y-16">
+    {sections.map((section) => (
+      <section>
+        <SectionHeading>{section.heading}</SectionHeading>
 
-    <!-- Officers -->
-    <section>
-      <SectionHeading>Officers</SectionHeading>
+        {section.people.map((person) => (
+          <Card padding="lg" hover={false}>
+            <div class="flex flex-col gap-8 md:flex-row">
+              <div class="shrink-0 md:w-56">
+                {person.photo ? (
+                  <img
+                    src={person.photo}
+                    alt={`Photo of ${person.name}`}
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                    class="aspect-[4/5] w-48 rounded-lg object-cover md:w-56"
+                  />
+                ) : (
+                  <div
+                    class="flex aspect-[4/5] w-48 items-center justify-center rounded-lg bg-e3-50 md:w-56"
+                    aria-hidden="true"
+                  >
+                    <span class="text-5xl font-bold text-e3-700">{person.initials}</span>
+                  </div>
+                )}
+              </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Card padding="md">
-          <h3 class="font-semibold">William Booker, Jr.</h3>
-          <p class="text-sm text-gray-600 mt-1">President</p>
-        </Card>
+              <div class="min-w-0">
+                <h3 class="text-2xl font-bold text-e3-900">{person.name}</h3>
+                <p class="mt-1 font-semibold text-e3-700">{person.role}</p>
 
-        <Card padding="md">
-          <h3 class="font-semibold">Shelbia Carter-Wiley</h3>
-          <p class="text-sm text-gray-600 mt-1">Vice-President</p>
-        </Card>
+                {person.showCeoLetter && (
+                  <a
+                    href={ceoLetterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 inline-flex items-center gap-2 rounded-md bg-e3 px-4 py-2 font-semibold text-white transition-colors hover:bg-e3-600"
+                  >
+                    From The Desk Of The CEO
+                    <span class="text-sm font-normal opacity-90">(PDF)</span>
+                  </a>
+                )}
 
-        <Card padding="md">
-          <h3 class="font-semibold">Dr. Cheryl McKinley</h3>
-          <p class="text-sm text-gray-600 mt-1">Treasurer</p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Elizabeth Vereen</h3>
-          <p class="text-sm text-gray-600 mt-1">Secretary</p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Antoine Smith</h3>
-          <p class="text-sm text-gray-600 mt-1">Executive Director</p>
-        </Card>
-      </div>
-
-      <p class="mt-4 text-sm text-gray-500 italic">Photos coming soon.</p>
-    </section>
-
-    <!-- Board Committee Chairpersons -->
-    <section>
-      <SectionHeading>Board – Committee Chairpersons</SectionHeading>
-
-      <div class="grid gap-6 md:grid-cols-2">
-        <Card padding="md">
-          <h3 class="font-semibold">Dr. Cheryl D. McKinley</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            Finance &amp; Audit Committee — Chair
-          </p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Karen Mason</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            Public Relations &amp; Fundraising Committee — Chair
-          </p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Melissa Moses</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            Partnerships &amp; Community Impact Committee — Chair
-          </p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Daniel Gore</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            Strategic Planning &amp; Economic Development Committee — Chair
-          </p>
-        </Card>
-
-        <Card padding="md">
-          <h3 class="font-semibold">Cherie Shepherd</h3>
-          <p class="text-sm text-gray-600 mt-1">
-            Brand Ambassador &amp; National Spokesperson — Chair
-          </p>
-        </Card>
-
-      </div>
-    </section>
-
+                <div class="mt-6 space-y-4 leading-relaxed text-gray-700">
+                  {person.bio.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </section>
+    ))}
   </section>
 </PageLayout>
