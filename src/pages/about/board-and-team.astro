@@ -5,7 +5,7 @@ import SectionHeading from "../../components/SectionHeading.astro";
 
 /**
  * People shown on this page.
- * Photos: put the file in public/images/team/ (portrait 4:5, 800x1000)
+ * Photos: put the file in public/images/team/ (portrait 4:5, up to 800x1000)
  * and set `photo` to its path, e.g. "/images/team/antoine-smith.jpg".
  * Until a photo is set, the card shows the person's initials.
  */
@@ -39,7 +39,7 @@ const sections = [
         name: "Dr. Cheryl D. McKinley",
         role: "Chair, E³ CoE Educational Advisory Board",
         initials: "CM",
-        photo: undefined as string | undefined,
+        photo: "/images/team/cheryl-mckinley.jpg" as string | undefined,
         showCeoLetter: false,
         bio: [
           "Dr. Cheryl McKinley serves as the Chairperson of the E³ Center of Excellence (E³ CoE) Educational Advisory Board, bringing more than two decades of distinguished leadership experience spanning banking, finance, consulting, education, ministry, and community transformation.",
