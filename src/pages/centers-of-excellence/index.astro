@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
+import { coes } from "../../config/coes";
+---
+
+<BaseLayout
+  title={`Centers Of Excellence (CoEs) | ${site.name}`}
+  description="The E3 CoE Centers Of Excellence: Education, Economic Development, and Entrepreneurship."
+>
+  <section class="bg-gradient-to-br from-e3-900 via-e3-800 to-e3-700 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <p class="text-sm font-semibold tracking-widest text-e3-200 uppercase">Centers Of Excellence (CoEs)</p>
+      <h1 class="mt-3 text-3xl md:text-5xl font-extrabold leading-tight">Our Centers Of Excellence</h1>
+      <p class="mt-6 max-w-3xl text-lg md:text-xl text-white border-l-4 border-e3 pl-4 italic leading-relaxed">
+        “{site.tagline}”
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16">
+    <div class="grid gap-6 md:grid-cols-3">
+      {coes.map((coe) => (
+        <a
+          href={`/centers-of-excellence/${coe.slug}`}
+          class="group rounded-2xl border border-e3-200 border-t-4 border-t-e3 bg-white p-8 shadow-sm hover:shadow-md transition"
+        >
+          <h2 class="text-2xl font-bold text-e3-900">{coe.name}</h2>
+          <p class="mt-3 text-gray-700 italic">{coe.line}</p>
+          <span class="mt-6 inline-block text-sm font-semibold text-e3-700 group-hover:text-e3-900">Learn more →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

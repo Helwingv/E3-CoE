@@ -27,8 +27,20 @@
   to = "/programs/community-impact"
   status = 301
 
-# E3 CoE does not accept donations.
+# Donations and investments are on the Make A Difference page.
 [[redirects]]
   from = "/donate"
-  to = "/about/get-involved"
+  to = "/about/make-a-difference"
+  status = 301
+
+# Get Involved became Make A Difference.
+[[redirects]]
+  from = "/about/get-involved"
+  to = "/about/make-a-difference"
+  status = 301
+
+# Projects became Centers Of Excellence (CoEs).
+[[redirects]]
+  from = "/projects"
+  to = "/centers-of-excellence"
   status = 301

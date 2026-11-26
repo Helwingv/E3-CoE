@@ -12,7 +12,7 @@ export const nav: NavItem[] = [
       { label: "Who We Are", href: "/about/who-we-are" },
       { label: "What We Do", href: "/about/what-we-do" },
       { label: "Board & Team", href: "/about/board-and-team" },
-      { label: "Get Involved", href: "/about/get-involved" },
+      { label: "Make A Difference", href: "/about/make-a-difference" },
       { label: "In the News", href: "/about/in-the-news" }
     ]
   },
@@ -27,8 +27,12 @@ export const nav: NavItem[] = [
     ]
   },
   {
-    label: "Projects",
-    href: "/projects"
+    label: "Centers Of Excellence (CoEs)",
+    children: [
+      { label: "Education", href: "/centers-of-excellence/education", desc: "Enabling Through Education" },
+      { label: "Economic Development", href: "/centers-of-excellence/economic-development", desc: "Driving Change Through Economic Development" },
+      { label: "Entrepreneurship", href: "/centers-of-excellence/entrepreneurship", desc: "Empowering Through Entrepreneurship" }
+    ]
   },
   {
     label: "Events",

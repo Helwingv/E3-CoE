@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
+
+const ceoLetterUrl =
+  "https://1954850.fs1.hubspotusercontent-na1.net/hubfs/1954850/SmithGruppe_E3CoELetterFromTheDeskOfTheCEO-PressReleaseVersion.pdf";
+const investorFormUrl = "https://share.hsforms.com/2Kjea8egTQEGJcsXHOlbYIA15wde";
+const donationFormUrl = "https://share.hsforms.com/2ftJIkctZS0y-gsQFotnjHw15wde";
+
+const input = "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-e3";
+---
+
+<BaseLayout
+  title={`Make A Difference | ${site.name}`}
+  description="Ways to make a difference with the E3 CoE: donate, invest, volunteer, or become a partner."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-e3-900 via-e3-800 to-e3-700 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <p class="text-sm font-semibold tracking-widest text-e3-200 uppercase">Make A Difference</p>
+      <h1 class="mt-3 text-3xl md:text-5xl font-extrabold leading-tight">Ways To Make A Difference</h1>
+      <p class="mt-6 max-w-3xl text-lg md:text-xl text-white border-l-4 border-e3 pl-4 italic leading-relaxed">
+        “{site.tagline}”
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 text-sm font-semibold">
+        <a href="#give" class="rounded-md bg-e3 px-4 py-2 hover:bg-e3-600 transition">Donate Or Invest</a>
+        <a href="#volunteer" class="rounded-md border-2 border-white px-4 py-2 hover:bg-white hover:text-e3-900 transition">Volunteer</a>
+        <a href="#partner" class="rounded-md border-2 border-white px-4 py-2 hover:bg-white hover:text-e3-900 transition">Become A Partner</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Why -->
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <p class="text-e3-700 text-sm font-bold uppercase tracking-widest">Our Why</p>
+    <h2 class="mt-2 text-2xl md:text-4xl font-bold text-e3-900">We Exist To Make A Difference</h2>
+    <div class="mt-8 space-y-6 text-lg text-gray-700 leading-relaxed">
+      <p>
+        As the author and originator of the E3 CoE Business Model, the “Why” of why we exist is embodied throughout the culture of the organization.
+      </p>
+      <p>
+        We exist solely to fulfill our purpose to “Make A Difference” in every client engagement. As a “Difference Maker,” we exemplify and live this embodiment in our every action, word, and deed. We are dedicated to creating meaningful impact and value, ensuring that our efforts drive significant success for your business, school, city, county, or community.
+      </p>
+      <p>
+        Engaging the E3 CoE (Center Of Excellence) Business Model as a “Difference Maker” allows us to deliver deep expertise in helping our partners and stakeholders design a CoE (Center Of Excellence) mindset and program, and manage it end-to-end to yield high-impact Results.
+      </p>
+    </div>
+    <a
+      href={ceoLetterUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-flex items-center gap-2 rounded-md bg-e3-700 px-5 py-3 text-sm font-semibold text-white hover:bg-e3-800 transition"
+    >
+      Letter From The Desk Of The CEO (PDF) →
+    </a>
+  </section>
+
+  <!-- Donate or invest -->
+  <section id="give" class="bg-e3-50 border-y border-e3-200 scroll-mt-28">
+    <div class="mx-auto max-w-4xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-e3-900">
+        You Can Make A Difference With A Donation Or Investment Of Any Size
+      </h2>
+      <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+        Your contributions are used to support the wide variety of initiatives and programs for marginalized, underserved, and underrepresented communities. Our donors and investors are just one more example of the power of community. When everyone is invested, commitment follows. Dollar by dollar, direct donors and investors make every single community an improved value proposition for our society at large by increasing the economic viability of marginalized, underserved, and underrepresented peoples.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href={donationFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-md bg-e3 px-6 py-3 text-sm font-semibold text-white hover:bg-e3-600 transition"
+        >
+          Make A Donation →
+        </a>
+        <a
+          href={investorFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-md bg-e3-700 px-6 py-3 text-sm font-semibold text-white hover:bg-e3-800 transition"
+        >
+          Become An Investor →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer -->
+  <section id="volunteer" class="mx-auto max-w-7xl px-4 py-16 scroll-mt-28">
+    <div class="grid gap-10 lg:grid-cols-2 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-e3-900">Our Team Really Needs Volunteers</h2>
+        <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+          Those who are willing and have the desire to help those in need. If you are young, active, and ready to change the world for the better, we look forward to seeing you in our volunteer family.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-e3-200 border-t-4 border-t-e3 bg-white p-6 md:p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-e3-900">Join Our Team</h3>
+        <form name="volunteer" method="POST" data-e3-form class="mt-5 grid gap-4">
+          <input type="hidden" name="form-name" value="volunteer" />
+          <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <label class="grid gap-1 text-sm font-medium text-gray-700">
+            Your Name
+            <input name="name" required autocomplete="name" class={input} />
+          </label>
+          <label class="grid gap-1 text-sm font-medium text-gray-700">
+            Email
+            <input name="email" type="email" required autocomplete="email" class={input} />
+          </label>
+          <label class="grid gap-1 text-sm font-medium text-gray-700">
+            Phone
+            <input name="phone" type="tel" autocomplete="tel" class={input} />
+          </label>
+          <button type="submit" class="mt-2 rounded-md bg-e3 px-5 py-3 text-sm font-semibold text-white hover:bg-e3-600 transition">
+            Join Today
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner -->
+  <section id="partner" class="mx-auto max-w-7xl px-4 scroll-mt-28">
+    <div class="rounded-2xl bg-e3-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <h2 class="text-2xl font-bold">Want To Become A Partner?</h2>
+        <p class="text-white/85 mt-2 max-w-2xl">
+          If you are interested in becoming our partner, we will be more than glad to have a conversation with you to discuss our new possible friendship in the future! Looking forward to your contact!
+        </p>
+        <p class="text-sm text-white/80 mt-3">
+          Call <a class="underline hover:text-white" href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}>{site.phone}</a>
+          or email <a class="underline hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        class="shrink-0 inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-e3-900 hover:bg-e3-100 transition"
+      >
+        Contact Us →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

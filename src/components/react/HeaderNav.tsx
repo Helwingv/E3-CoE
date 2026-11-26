@@ -16,11 +16,11 @@ export default function HeaderNav() {
             <span className="text-xs font-semibold uppercase tracking-widest text-e3-700">Center Of Excellence</span>
           </span>
         </a>
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-5">
           {nav.map((item) =>
             item.children ? (
               <div key={item.label} className="relative group">
-                <button className="text-sm hover:text-e3-600 py-2">{item.label}</button>
+                <button className="text-sm whitespace-nowrap hover:text-e3-600 py-2">{item.label}</button>
                 <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <MegaMenu items={item.children} />
                 </div>
@@ -30,15 +30,15 @@ export default function HeaderNav() {
                 key={item.label}
                 href={item.href}
                 {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : { "data-astro-prefetch": true })}
-                className="text-sm hover:text-e3-600"
+                className="text-sm whitespace-nowrap hover:text-e3-600"
               >
                 {item.label}
               </a>
             )
           )}
-          <a href="/about/get-involved" data-astro-prefetch className="ml-2 inline-flex items-center rounded-md bg-e3-700 px-3 py-2 text-sm font-semibold text-white hover:bg-e3-800">Get Involved</a>
+          <a href="/about/make-a-difference" data-astro-prefetch className="ml-2 inline-flex items-center whitespace-nowrap rounded-md bg-e3-700 px-3 py-2 text-sm font-semibold text-white hover:bg-e3-800">Make A Difference</a>
         </nav>
-        <button aria-label="Open menu" className="lg:hidden" onClick={() => setOpen(open ? null : "drawer")}>
+        <button aria-label="Open menu" className="xl:hidden" onClick={() => setOpen(open ? null : "drawer")}>
           ☰
         </button>
       </div>
