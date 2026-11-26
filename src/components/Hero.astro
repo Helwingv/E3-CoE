@@ -9,8 +9,21 @@ const {
 } = Astro.props;
 ---
 <section class="relative bg-white">
-  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/pexels-jibarofoto-17026868.jpg');"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-e3-900/90 via-e3-900/70 to-e3-700/40"></div>
+  <!-- Photo: "People during Training Course" by Matheus Bertelli on Pexels -->
+  <img
+    src="/images/hero-training-course-1920.webp"
+    srcset="/images/hero-training-course-960.webp 960w, /images/hero-training-course-1920.webp 1920w"
+    sizes="100vw"
+    width="1920"
+    height="1280"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 h-full w-full object-cover object-[50%_65%]"
+  />
+  <div class="absolute inset-0 bg-gradient-to-r from-e3-900/90 via-e3-800/75 to-e3-700/50"></div>
   <div class="relative mx-auto max-w-7xl px-4 py-16 grid lg:grid-cols-2 gap-8 items-center">
     <div>
       <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">{title}</h1>
